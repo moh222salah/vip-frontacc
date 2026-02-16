@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrontAccounting - نظام محاسبي حديث بلا تعقيد</title>
+    
+    <!-- Google Fonts - Distinctive Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== CSS VARIABLES - LUXURY DESIGN SYSTEM ========== */
+        :root {
+            /* Sophisticated Color Palette */
+            --midnight: #0A0E27;
+            --navy: #1A1F3A;
+            --royal-blue: #2D3FE8;
+            --electric: #4F63FF;
+            --accent-gold: #FFB84D;
+            --accent-emerald: #00D9A3;
+            --soft-white: #FAFBFC;
+            --pearl: #F4F6F8;
+            --silver: #E1E8ED;
+            --mist: rgba(255, 255, 255, 0.05);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #2D3FE8 0%, #4F63FF 50%, #00D9A3 100%);
+            --gradient-mesh: radial-gradient(at 0% 0%, rgba(77, 99, 255, 0.15) 0px, transparent 50%),
+                             radial-gradient(at 100% 0%, rgba(0, 217, 163, 0.1) 0px, transparent 50%),
+                             radial-gradient(at 100% 100%, rgba(255, 184, 77, 0.08) 0px, transparent 50%),
+                             radial-gradient(at 0% 100%, rgba(45, 63, 232, 0.12) 0px, transparent 50%);
+            
+            /* Typography Scale - Perfect Fourth (1.333) */
+            --font-display: 'Playfair Display', 'Cairo', serif;
+            --font-body: 'Cairo', -apple-system, sans-serif;
+            --font-mono: 'DM Mono', monospace;
+            
+            --text-xs: 0.75rem;      /* 12px */
+            --text-sm: 0.875rem;     /* 14px */
+            --text-base: 1rem;       /* 16px */
+            --text-lg: 1.125rem;     /* 18px */
+            --text-xl: 1.333rem;     /* 21px */
+            --text-2xl: 1.777rem;    /* 28px */
+            --text-3xl: 2.369rem;    /* 38px */
+            --text-4xl: 3.157rem;    /* 51px */
+            --text-5xl: 4.209rem;    /* 67px */
+            --text-6xl: 5.61rem;     /* 90px */
+            
+            /* Spacing System - 8px base */
+            --space-1: 0.25rem;   /* 4px */
+            --space-2: 0.5rem;    /* 8px */
+            --space-3: 0.75rem;   /* 12px */
+            --space-4: 1rem;      /* 16px */
+            --space-6: 1.5rem;    /* 24px */
+            --space-8: 2rem;      /* 32px */
+            --space-12: 3rem;     /* 48px */
+            --space-16: 4rem;     /* 64px */
+            --space-24: 6rem;     /* 96px */
+            --space-32: 8rem;     /* 128px */
+            
+            /* Shadows - Layered Depth */
+            --shadow-sm: 0 2px 4px rgba(10, 14, 39, 0.04);
+            --shadow-md: 0 4px 12px rgba(10, 14, 39, 0.08);
+            --shadow-lg: 0 8px 24px rgba(10, 14, 39, 0.12);
+            --shadow-xl: 0 16px 48px rgba(10, 14, 39, 0.16);
+            --shadow-glow: 0 0 40px rgba(79, 99, 255, 0.3);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        /* ========== RESET & BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--soft-white);
+            overflow-x: hidden;
+        }
+        
+        /* ========== HERO SECTION - DRAMATIC ENTRANCE ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--midnight);
+            overflow: hidden;
+            padding: var(--space-8) var(--space-4);
+        }
+        
+        /* Animated Gradient Mesh Background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-mesh);
+            opacity: 1;
+            animation: meshMove 20s ease-in-out infinite;
+        }
+        
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(5%, -5%) scale(1.05); }
+            50% { transform: translate(-3%, 3%) scale(0.95); }
+            75% { transform: translate(3%, -2%) scale(1.02); }
+        }
+        
+        /* Floating Geometric Shapes */
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--mist);
+            backdrop-filter: blur(40px);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 15%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+        
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 30%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-15px, 15px) rotate(-3deg); }
+            75% { transform: translate(10px, -10px) rotate(2deg); }
+        }
+        
+        .hero-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-6) var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            animation: slideDown 0.8s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-8);
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--soft-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--text-sm);
+            letter-spacing: 0.02em;
+            transition: all var(--transition-base);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-emerald);
+            transition: width var(--transition-base);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-emerald);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Content */
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+            margin-top: var(--space-24);
+        }
+        
+        .hero-text {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: var(--space-2) var(--space-4);
+            background: rgba(0, 217, 163, 0.1);
+            color: var(--accent-emerald);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            border: 1px solid rgba(0, 217, 163, 0.2);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: var(--text-6xl);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--soft-white);
+            margin-bottom: var(--space-6);
+            letter-spacing: -0.03em;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        
+        .hero-description {
+            font-size: var(--text-xl);
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: var(--space-8);
+            max-width: 580px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+        
+        .btn {
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: var(--text-base);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 8px 24px rgba(79, 99, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(79, 99, 255, 0.5);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--soft-white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Visual - Mockup */
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .mockup {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform var(--transition-slow);
+        }
+        
+        .mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+        
+        .mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .mockup-placeholder {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #1A1F3A 0%, #2D3FE8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-white);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+        }
+        
+        /* Stats Bar */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-6);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-base);
+        }
+        
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 217, 163, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: var(--space-2);
+        }
+        
+        .stat-label {
+            color: var(--silver);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        /* ========== FEATURES SECTION ========== */
+        .features {
+            padding: var(--space-32) var(--space-8);
+            background: var(--soft-white);
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-24);
+        }
+        
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            color: var(--royal-blue);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-4);
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--midnight);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-6);
+        }
+        
+        .section-description {
+            font-size: var(--text-lg);
+            color: #64748B;
+            line-height: 1.8;
+        }
+        
+        /* Feature Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+        }
+        
+        .feature-card {
+            position: relative;
+            padding: var(--space-12);
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-slow);
+            border: 1px solid var(--pearl);
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-slow);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--electric);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-6);
+            box-shadow: 0 8px 24px rgba(79, 99, 255, 0.25);
+        }
+        
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--midnight);
+            margin-bottom: var(--space-4);
+        }
+        
+        .feature-description {
+            color: #64748B;
+            line-height: 1.7;
+            margin-bottom: var(--space-6);
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: var(--space-6);
+        }
+        
+        .feature-list li {
+            padding: var(--space-3) 0;
+            color: #475569;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-emerald);
+            font-weight: 700;
+            font-size: var(--text-lg);
+        }
+        
+        /* ========== DEMO SECTION ========== */
+        .demo {
+            padding: var(--space-32) var(--space-8);
+            background: var(--midnight);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-mesh);
+            opacity: 0.4;
+        }
+        
+        .demo-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-24);
+            align-items: center;
+        }
+        
+        .demo-text h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--soft-white);
+            line-height: 1.2;
+            margin-bottom: var(--space-6);
+        }
+        
+        .demo-text p {
+            font-size: var(--text-lg);
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: var(--space-8);
+        }
+        
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .demo-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .demo-feature-icon {
+            font-size: var(--text-xl);
+        }
+        
+        .demo-feature-text {
+            color: var(--soft-white);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .demo-visual {
+            position: relative;
+        }
+        
+        .browser-mockup {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .browser-header {
+            padding: var(--space-3) var(--space-4);
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E2E8F0;
+        }
+        
+        .browser-dot:nth-child(1) { background: #EF4444; }
+        .browser-dot:nth-child(2) { background: #F59E0B; }
+        .browser-dot:nth-child(3) { background: #10B981; }
+        
+        .browser-content {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+        }
+        
+        /* ========== COMPARISON SECTION ========== */
+        .comparison {
+            padding: var(--space-32) var(--space-8);
+            background: var(--soft-white);
+        }
+        
+        .comparison-table {
+            max-width: 1200px;
+            margin: var(--space-16) auto 0;
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: var(--midnight);
+        }
+        
+        thead th {
+            padding: var(--space-6);
+            color: var(--soft-white);
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            text-align: right;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid var(--pearl);
+            transition: background var(--transition-base);
+        }
+        
+        tbody tr:hover {
+            background: var(--pearl);
+        }
+        
+        tbody td {
+            padding: var(--space-6);
+            color: var(--navy);
+        }
+        
+        tbody td:first-child {
+            font-weight: 600;
+        }
+        
+        .check {
+            color: var(--accent-emerald);
+            font-weight: 700;
+            font-size: var(--text-xl);
+        }
+        
+        .cross {
+            color: #EF4444;
+            font-weight: 700;
+            font-size: var(--text-xl);
+        }
+        
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            padding: var(--space-32) var(--space-8);
+            background: var(--pearl);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: var(--space-12);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: var(--space-6);
+            right: var(--space-6);
+            font-family: var(--font-display);
+            font-size: 80px;
+            color: var(--pearl);
+            line-height: 1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-text {
+            font-size: var(--text-lg);
+            color: var(--navy);
+            line-height: 1.8;
+            margin-bottom: var(--space-8);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: var(--text-xl);
+        }
+        
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--midnight);
+            margin-bottom: var(--space-1);
+        }
+        
+        .author-info p {
+            font-size: var(--text-sm);
+            color: #64748B;
+        }
+        
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            padding: var(--space-32) var(--space-8);
+            background: var(--midnight);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-mesh);
+            opacity: 0.6;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--soft-white);
+            line-height: 1.2;
+            margin-bottom: var(--space-6);
+        }
+        
+        .cta-content p {
+            font-size: var(--text-xl);
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: var(--space-12);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--navy);
+            padding: var(--space-16) var(--space-8);
+            color: var(--silver);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-12);
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--soft-white);
+            margin-bottom: var(--space-6);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-3);
+        }
+        
+        .footer-links a {
+            color: var(--silver);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-emerald);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-12) auto 0;
+            padding-top: var(--space-8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: var(--text-sm);
+            color: #64748B;
+        }
+        
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1024px) {
+            :root {
+                --text-6xl: 3.5rem;
+                --text-5xl: 2.8rem;
+                --text-4xl: 2.2rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-12);
+            }
+            
+            .demo-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: var(--text-4xl);
+            }
+        }
+        
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ========== CUSTOM CURSOR (Desktop) ========== */
+        @media (min-width: 1024px) {
+            .custom-cursor {
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--electric);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.1s ease;
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+            }
+            
+            .custom-cursor.hover {
+                transform: translate(-50%, -50%) scale(2);
+                background: rgba(79, 99, 255, 0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">FrontAccounting</div>
+        <ul class="nav-links">
+            <li><a href="#features">المميزات</a></li>
+            <li><a href="#demo">تجربة مباشرة</a></li>
+            <li><a href="#comparison">المقارنة</a></li>
+            <li><a href="#testimonials">آراء العملاء</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Animated Background Shapes -->
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+        <div class="hero-shape shape-3"></div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="badge">مفتوح المصدر • مجاني للأبد</span>
+                    
+                    <h1>
+                        نظام محاسبي حديث
+                        <span class="gradient-text">بلا تعقيد</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        FrontAccounting هو نظام ERP احترافي ومفتوح المصدر، مصمم للشركات الصغيرة والمتوسطة. 
+                        إدارة محاسبية كاملة، مخزون ذكي، وتقارير احترافية - كل ذلك بواجهة حديثة وسهلة الاستخدام.
+                    </p>
+                    
+                    <div class="cta-group">
+                        <a href="#demo" class="btn btn-primary">
+                            <span>جرّب المنصة مجاناً</span>
+                            <span>→</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            <span>استكشف المميزات</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="mockup">
+                        <div class="mockup-placeholder">
+                            Dashboard Preview
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">150K+</span>
+                    <span class="stat-label">تنزيل نشط</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">دولة حول العالم</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">مجاني ومفتوح المصدر</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">المميزات الأساسية</div>
+                <h2 class="section-title">كل ما تحتاجه لإدارة أعمالك</h2>
+                <p class="section-description">
+                    نظام متكامل يجمع بين قوة الأنظمة الاحترافية وسهولة الاستخدام، 
+                    مع دعم كامل للغة العربية والعديد من اللغات الأخرى.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">محاسبة احترافية</h3>
+                    <p class="feature-description">
+                        نظام محاسبي متكامل مع دليل حسابات مرن، قيود يومية ذكية، 
+                        وتقارير مالية شاملة.
+                    </p>
+                    <ul class="feature-list">
+                        <li>دليل حسابات قابل للتخصيص بالكامل</li>
+                        <li>قيود يومية تلقائية مع موازنة ذكية</li>
+                        <li>تقارير مالية (ميزانية، قائمة دخل، ميزان مراجعة)</li>
+                        <li>دعم Multi-Currency والعملات المتعددة</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛒</div>
+                    <h3 class="feature-title">المبيعات والمشتريات</h3>
+                    <p class="feature-description">
+                        إدارة كاملة لدورة المبيعات والمشتريات من عروض الأسعار 
+                        حتى الدفعات والفواتير الضريبية.
+                    </p>
+                    <ul class="feature-list">
+                        <li>فواتير مبيعات احترافية مع قوالب قابلة للتخصيص</li>
+                        <li>إدارة عروض الأسعار وأوامر البيع</li>
+                        <li>تتبع الحسابات المدينة والدائنة</li>
+                        <li>تقارير مبيعات تفصيلية ورسوم بيانية</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📦</div>
+                    <h3 class="feature-title">إدارة المخزون</h3>
+                    <p class="description">
+                        تتبع دقيق للمخزون مع دعم Barcode، تنبيهات المخزون المنخفض، 
+                        وإدارة متعددة المستودعات.
+                    </p>
+                    <ul class="feature-list">
+                        <li>تتبع فوري للمخزون مع Barcode Support</li>
+                        <li>Multi-Warehouse - مستودعات متعددة</li>
+                        <li>تنبيهات ذكية للمخزون المنخفض</li>
+                        <li>تقييم المخزون (FIFO, LIFO, Average)</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏭</div>
+                    <h3 class="feature-title">التصنيع وBOM</h3>
+                    <p class="feature-description">
+                        إدارة متقدمة للإنتاج مع Bill of Materials، 
+                        تتبع تكاليف الإنتاج، وإدارة أوامر التصنيع.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Bill of Materials (قائمة المواد) متعددة المستويات</li>
+                        <li>أوامر تصنيع Work Orders مع تتبع التقدم</li>
+                        <li>حساب تكلفة الإنتاج الفعلية</li>
+                        <li>تحليل الربحية للمنتجات المصنعة</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">تقارير وتحليلات</h3>
+                    <p class="feature-description">
+                        أكثر من 100 تقرير جاهز مع إمكانية إنشاء تقارير مخصصة، 
+                        رسوم بيانية تفاعلية، وتصدير بصيغ متعددة.
+                    </p>
+                    <ul class="feature-list">
+                        <li>تقارير مالية شاملة (P&L, Balance Sheet)</li>
+                        <li>تحليل AR/AP Aging</li>
+                        <li>تقارير مبيعات ومشتريات تفصيلية</li>
+                        <li>تصدير PDF, Excel, CSV</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Multi-Company</h3>
+                    <p class="feature-description">
+                        إدارة شركات متعددة من حساب واحد، مع صلاحيات مستخدمين متقدمة، 
+                        وتقارير موحدة.
+                    </p>
+                    <ul class="feature-list">
+                        <li>إدارة شركات متعددة من نفس التثبيت</li>
+                        <li>صلاحيات مستخدمين متقدمة Role-Based</li>
+                        <li>Dimensions للتتبع حسب الأقسام/المشاريع</li>
+                        <li>تقارير موحدة Consolidated Reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container demo-container">
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h2>جرّب النظام الآن<br>بدون تسجيل</h2>
+                    <p>
+                        استكشف جميع المميزات في بيئة تجريبية كاملة مع بيانات نموذجية. 
+                        لا حاجة للتسجيل أو إدخال بريد إلكتروني.
+                    </p>
+                    
+                    <div class="demo-features">
+                        <div class="demo-feature">
+                            <span class="demo-feature-icon">⚡</span>
+                            <span class="demo-feature-text">وصول فوري - لا حاجة للتسجيل</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-feature-icon">📊</span>
+                            <span class="demo-feature-text">بيانات نموذجية كاملة</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-feature-icon">🔄</span>
+                            <span class="demo-feature-text">إعادة تعيين كل 30 دقيقة</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-feature-icon">🎯</span>
+                            <span class="demo-feature-text">جولات إرشادية تفاعلية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-group">
+                        <a href="#" class="btn btn-primary">ابدأ التجربة المجانية</a>
+                        <a href="#" class="btn btn-secondary">شاهد الفيديو التوضيحي</a>
+                    </div>
+                </div>
+                
+                <div class="demo-visual">
+                    <div class="browser-mockup">
+                        <div class="browser-header">
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                            <div class="browser-dot"></div>
+                        </div>
+                        <div class="browser-content">
+                            Interactive Demo Preview
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">المقارنة</div>
+                <h2 class="section-title">لماذا FrontAccounting؟</h2>
+                <p class="section-description">
+                    مقارنة موضوعية مع الأنظمة الأخرى في السوق
+                </p>
+            </div>
+            
+            <div class="comparison-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الميزة</th>
+                            <th>FrontAccounting</th>
+                            <th>ERPNext</th>
+                            <th>Odoo</th>
+                            <th>QuickBooks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>مجاني ومفتوح المصدر</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span> Community</td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>سهولة الاستخدام</td>
+                            <td><span class="check">✓</span> بسيط</td>
+                            <td>متوسط</td>
+                            <td>معقد</td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Multi-Company</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>دعم اللغة العربية</td>
+                            <td><span class="check">✓</span> كامل</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td>محدود</td>
+                        </tr>
+                        <tr>
+                            <td>Manufacturing & BOM</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="cross">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td>متطلبات السيرفر</td>
+                            <td>خفيف جداً</td>
+                            <td>ثقيل</td>
+                            <td>متوسط</td>
+                            <td>Cloud فقط</td>
+                        </tr>
+                        <tr>
+                            <td>التكلفة السنوية</td>
+                            <td><strong>$0</strong></td>
+                            <td>$0 - $1,200+</td>
+                            <td>$0 - $2,400+</td>
+                            <td>$300 - $1,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">آراء العملاء</div>
+                <h2 class="section-title">ماذا يقول مستخدمونا</h2>
+                <p class="section-description">
+                    آلاف الشركات حول العالم تثق في FrontAccounting لإدارة أعمالها
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "انتقلنا من QuickBooks إلى FrontAccounting ووفرنا أكثر من $1,200 سنوياً. 
+                        النظام قوي، سهل الاستخدام، ويمنحنا تحكم كامل في بياناتنا."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">أح</div>
+                        <div class="author-info">
+                            <h4>أحمد حسن</h4>
+                            <p>مدير مالي، شركة التقنية المتقدمة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "كمصنع صغير، كنا نحتاج نظام BOM احترافي بدون تكاليف باهظة. 
+                        FrontAccounting قدم لنا كل ما نحتاجه مع واجهة بسيطة يفهمها الجميع."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س</div>
+                        <div class="author-info">
+                            <h4>سارة المنصور</h4>
+                            <p>صاحبة مصنع الأثاث الحديث</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">
+                        "نظام ممتاز للشركات متعددة الفروع. نُدير 5 شركات من لوحة تحكم واحدة، 
+                        مع تقارير موحدة وصلاحيات مرنة للمستخدمين."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م</div>
+                        <div class="author-info">
+                            <h4>محمد العتيبي</h4>
+                            <p>مدير تنفيذي، مجموعة الشرق للتجارة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>ابدأ رحلتك مع FrontAccounting اليوم</h2>
+                <p>
+                    انضم لآلاف الشركات التي وثقت في FrontAccounting لإدارة محاسبتها. 
+                    مجاني، مفتوح المصدر، وجاهز للاستخدام في دقائق.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">تنزيل مجاني</a>
+                    <a href="#" class="btn btn-secondary">استضافة سحابية</a>
+                    <a href="#" class="btn btn-secondary">الوثائق التقنية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FrontAccounting</h3>
+                <p>نظام محاسبي مفتوح المصدر للشركات الصغيرة والمتوسطة</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>المنتج</h3>
+                <ul class="footer-links">
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#demo">التجربة المجانية</a></li>
+                    <li><a href="#">التسعير</a></li>
+                    <li><a href="#">التحديثات</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>الموارد</h3>
+                <ul class="footer-links">
+                    <li><a href="#">الوثائق</a></li>
+                    <li><a href="#">دروس فيديو</a></li>
+                    <li><a href="#">المنتدى</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>الشركة</h3>
+                <ul class="footer-links">
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">المدونة</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 FrontAccounting. جميع الحقوق محفوظة. مرخص تحت GPL.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // ========== CUSTOM CURSOR ========== //
+        if (window.innerWidth >= 1024) {
+            const cursor = document.querySelector('.custom-cursor');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+            
+            // Hover effect on interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .feature-card, .testimonial-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+        
+        // ========== SCROLL ANIMATIONS ========== //
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // ========== SMOOTH SCROLL ========== //
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // ========== NAVBAR SCROLL EFFECT ========== //
+        let lastScroll = 0;
+        const nav = document.querySelector('.nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(10, 14, 39, 0.95)';
+                nav.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(10, 14, 39, 0.7)';
+                nav.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // ========== COUNTER ANIMATION ========== //
+        const animateCounter = (element, target, duration = 2000) => {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString() + (element.textContent.includes('+') ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString() + (element.textContent.includes('+') ? '+' : '');
+                }
+            }, 16);
+        };
+        
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(num => {
+                        const target = parseInt(num.textContent.replace(/[^0-9]/g, ''));
+                        animateCounter(num, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) statsObserver.observe(statsSection);
+        
+        // ========== PARALLAX EFFECT ========== //
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.hero-shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.2);
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
