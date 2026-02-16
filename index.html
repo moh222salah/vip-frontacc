@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#00897B">
+    <title> VIP Front Accounting </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style> 
+
+/* ==================== ELITE DESIGN SYSTEM ==================== */
+:root {
+    /* Light Mode Colors */
+    --primary: #00897B;
+    --primary-dark: #004D40;
+    --accent-gold: #D4AF37;
+    --accent-emerald: #26A69A;
+    
+    --bg-main: #FAFAFA;
+    --bg-card: #FFFFFF;
+    --bg-sidebar: linear-gradient(180deg, #1A2332 0%, #0F1419 100%);
+    
+    --text-primary: #1A2332;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    
+    --border-color: rgba(0, 137, 123, 0.1);
+    --shadow-color: rgba(0, 77, 64, 0.12);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #004D40 0%, #00897B 50%, #26A69A 100%);
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #FFB300 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Typography */
+    --font-primary: 'Tajawal', sans-serif;
+    --font-display: 'IBM Plex Sans Arabic', sans-serif;
+    
+    /* Spacing */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px var(--shadow-color);
+    --shadow-lg: 0 8px 24px rgba(0,77,64,0.15);
+    --shadow-xl: 0 16px 48px rgba(0,77,64,0.2);
+    --shadow-glow: 0 0 32px rgba(212,175,55,0.3);
+    
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-luxury: 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-main: #0F1419;
+    --bg-card: #1A2332;
+    --bg-sidebar: linear-gradient(180deg, #0A0E14 0%, #050709 100%);
+    
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+/* ==================== RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background var(--transition-slow), color var(--transition-slow);
+}
+
+/* ==================== GLASSMORPHISM ==================== */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .glass {
+    background: rgba(26, 35, 50, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==================== TOP NAVBAR ==================== */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0,77,64,0.95) 0%, rgba(0,137,123,0.95) 100%);
+    backdrop-filter: blur(30px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-6);
+    box-shadow: var(--shadow-lg);
+    animation: slideDown 0.6s var(--transition-luxury);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: var(--shadow-glow);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.brand-text h1 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+}
+
+.brand-text p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.global-search {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 var(--space-8);
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 0.875rem;
+    transition: all var(--transition-base);
+    backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.action-btn, .theme-toggle, .lang-toggle, .mobile-menu-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: white;
+    position: relative;
+}
+
+.action-btn:hover, .theme-toggle:hover, .lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    background: #F44336;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    border: 2px solid var(--primary);
+}
+
+.lang-toggle {
+    min-width: 70px;
+    gap: var(--space-2);
+    width: auto;
+    padding: 0 var(--space-3);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+}
+
+.user-info h4 {
+    font-size: 0.875rem;
+    color: white;
+}
+
+.user-info p {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    width: 280px;
+    height: calc(100vh - 70px);
+    background: var(--bg-sidebar);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--space-6) 0;
+    overflow-y: auto;
+    z-index: 900;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+    animation: slideInRight 0.6s var(--transition-luxury);
+    transition: transform var(--transition-luxury);
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+.nav-section {
+    margin-bottom: var(--space-8);
+    padding: 0 var(--space-4);
+}
+
+.nav-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+    padding-right: var(--space-2);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-2);
+    position: relative;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gradient-gold);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+}
+
+.nav-item:hover {
+    background: rgba(0, 137, 123, 0.1);
+    color: white;
+    transform: translateX(-4px);
+}
+
+.nav-item:hover::before {
+    transform: scaleY(1);
+}
+
+.nav-item.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.nav-icon {
+    font-size: 1.25rem;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-text {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.nav-badge {
+    padding: var(--space-1) var(--space-2);
+    background: #F44336;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    margin-top: 70px;
+    margin-right: 280px;
+    padding: var(--space-8);
+    min-height: calc(100vh - 70px);
+    animation: fadeIn 0.8s var(--transition-luxury);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== MODAL SYSTEM ==================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    z-index: 2001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-luxury);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.modal-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gradient-primary);
+}
+
+.modal-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: var(--space-6);
+    max-height: calc(90vh - 180px);
+    overflow-y: auto;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--bg-main);
+    border-radius: var(--radius-md);
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: var(--radius-md);
+}
+
+.modal-footer {
+    padding: var(--space-6);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    background: var(--bg-main);
+}
+
+/* ==================== STATS CARDS ==================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+}
+
+.stat-card {
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-luxury);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-luxury);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.875rem;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-base);
+}
+
+.stat-card:hover .stat-icon {
+    transform: rotate(360deg);
+}
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.stat-trend.up {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.stat-trend.down {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+/* ==================== CTA FLOATING ==================== */
+.cta-floating {
+    position: fixed;
+    bottom: var(--space-6);
+    left: var(--space-6);
+    display: flex;
+    gap: var(--space-3);
+    z-index: 1500;
+    animation: slideUp 0.6s var(--transition-luxury);
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cta-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all var(--transition-luxury);
+    box-shadow: var(--shadow-lg);
+    font-family: var(--font-primary);
+}
+
+.cta-portfolio {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.cta-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+}
+
+.cta-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1023px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .global-search {
+        display: none;
+    }
+    
+    .sidebar {
+        right: -100%;
+    }
+    
+    .sidebar.active {
+        right: 0;
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 899;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-base);
+    }
+    
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .main-content {
+        margin-right: 0;
+        padding: var(--space-4);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-info {
+        display: none;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-floating {
+        bottom: var(--space-4);
+        left: var(--space-4);
+        right: var(--space-4);
+        justify-content: center;
+    }
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .top-navbar,
+    .sidebar,
+    .cta-floating,
+    .modal-overlay {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* ==================== MODAL CONTENT STYLES ==================== */
+
+/* Dashboard Modal */
+.dashboard-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+.overview-card {
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    gap: var(--space-4);
+    transition: all var(--transition-base);
+}
+
+.overview-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.overview-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.overview-content h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.overview-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.overview-trend {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.overview-trend.up {
+    color: #4CAF50;
+}
+
+.quick-stats h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+.stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--bg-main);
+    border-radius: var(--radius-md);
+}
+
+/* Accounts Modal */
+.accounts-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.modal-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    width: 300px;
+    font-family: var(--font-primary);
+    background: var(--bg-main);
+    color: var(--text-primary);
+}
+
+.accounts-tree {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.account-group {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    border: 1px solid var(--border-color);
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.account-item:hover {
+    background: var(--bg-main);
+}
+
+.account-item.parent {
+    font-weight: 700;
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.account-icon {
+    font-size: 1.25rem;
+}
+
+.account-name {
+    flex: 1;
+}
+
+.account-code {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.account-item.parent .account-code {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.account-children {
+    margin-top: var(--space-2);
+    margin-right: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+/* Journal Modal */
+.journal-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.journal-table {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.journal-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.journal-table thead {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.journal-table th {
+    padding: var(--space-4);
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.journal-table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.journal-table tbody tr:hover {
+    background: var(--bg-main);
+}
+
+.status-badge {
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-badge.approved {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.status-badge.pending {
+    background: rgba(255, 152, 0, 0.1);
+    color: #FF9800;
+}
+
+.status-badge.paid {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+}
+
+.btn-icon:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Invoices Modal */
+.invoices-modal {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.filter-select {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    cursor: pointer;
+}
+
+.invoices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+.invoice-card {
+    padding: var(--space-6);
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.invoice-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+.invoice-header h4 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.invoice-header p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.invoice-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+}
+
+.detail-row span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.amount {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.invoice-actions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    transition: all var(--transition-base);
+}
+
+.btn-sm:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Coming Soon */
+.coming-soon {
+    text-align: center;
+    padding: var(--space-16);
+}
+
+.coming-soon-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-6);
+}
+
+.coming-soon h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.coming-soon p {
+    color: var(--text-secondary);
+}
+
+/* Modal CTA */
+.modal-cta {
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.modal-cta h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+}
+
+.modal-cta .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.modal-cta .btn {
+    background: white;
+    color: var(--primary);
+}
+
+.modal-cta .btn.cta-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: all var(--transition-base);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    }
+
+        </style> 
+</head>
+<body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="navbar-content">
+            <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+                <span>☰</span>
+            </button>
+            
+            <div class="brand">
+                <div class="brand-logo">ه</div>
+                <div class="brand-text">
+                    <h1 data-i18n="brandTitle"> VIP Front Accounting</h1>
+                    <p data-i18n="brandSubtitle">نظام المحاسبة المتكامل</p>
+                </div>
+            </div>
+            
+            <div class="global-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث عن أي شيء... (Ctrl + K)">
+            </div>
+            
+            <div class="top-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-icon">🌐</span>
+                    <span class="lang-text">EN</span>
+                </button>
+                
+                <button class="action-btn" title="الإشعارات">
+                    <span>🔔</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <button class="action-btn" title="الرسائل">
+                    <span>💬</span>
+                </button>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">م</div>
+                    <div class="user-info">
+                        <h4>مدير النظام</h4>
+                        <p>متصل الآن</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="dashboard">لوحة التحكم</div>
+            <div class="nav-item active" onclick="openModal('dashboard')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text" data-i18n="mainDashboard">الرئيسية</span>
+            </div>
+            <div class="nav-item" onclick="openModal('reports')">
+                <span class="nav-icon">📈</span>
+                <span class="nav-text" data-i18n="analyticalReports">التقارير التحليلية</span>
+            </div>
+        </nav>
+        
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="accounting">المحاسبة</div>
+            <div class="nav-item" onclick="openModal('chartOfAccounts')">
+                <span class="nav-icon">💰</span>
+                <span class="nav-text" data-i18n="chartOfAccounts">دليل الحسابات</span>
+            </div>
+            <div class="nav-item" onclick="openModal('journalEntries')">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text" data-i18n="journalEntries">القيود اليومية</span>
+                <span class="nav-badge">2</span>
+            </div>
+            <div class="nav-item" onclick="openModal('transactions')">
+                <span class="nav-icon">💵</span>
+                <span class="nav-text" data-i18n="financialTransactions">الحركات المالية</span>
+            </div>
+            <div class="nav-item" onclick="openModal('banks')">
+                <span class="nav-icon">🏦</span>
+                <span class="nav-text" data-i18n="banksVaults">البنوك والصناديق</span>
+            </div>
+        </nav>
+        
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="salesPurchases">المبيعات والمشتريات</div>
+            <div class="nav-item" onclick="openModal('salesInvoices')">
+                <span class="nav-icon">🛒</span>
+                <span class="nav-text" data-i18n="salesInvoices">فواتير المبيعات</span>
+            </div>
+            <div class="nav-item" onclick="openModal('purchaseInvoices')">
+                <span class="nav-icon">📦</span>
+                <span class="nav-text" data-i18n="purchaseInvoices">فواتير المشتريات</span>
+            </div>
+            <div class="nav-item" onclick="openModal('quotes')">
+                <span class="nav-icon">💳</span>
+                <span class="nav-text" data-i18n="quotations">عروض الأسعار</span>
+            </div>
+        </nav>
+        
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="inventory">المخزون</div>
+            <div class="nav-item" onclick="openModal('inventoryManagement')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text" data-i18n="inventoryManagement">إدارة المخزون</span>
+            </div>
+            <div class="nav-item" onclick="openModal('warehouses')">
+                <span class="nav-icon">🏭</span>
+                <span class="nav-text" data-i18n="warehouses">المستودعات</span>
+            </div>
+            <div class="nav-item" onclick="openModal('movements')">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-text" data-i18n="inventoryMovements">حركات المخزون</span>
+            </div>
+        </nav>
+        
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="reports">التقارير</div>
+            <div class="nav-item" onclick="openModal('financialReports')">
+                <span class="nav-icon">📋</span>
+                <span class="nav-text" data-i18n="financialReports">تقارير مالية</span>
+            </div>
+            <div class="nav-item" onclick="openModal('salesReports')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text" data-i18n="salesReports">تقارير المبيعات</span>
+            </div>
+            <div class="nav-item" onclick="openModal('inventoryReports')">
+                <span class="nav-icon">📈</span>
+                <span class="nav-text" data-i18n="inventoryReports">تقارير المخزون</span>
+            </div>
+        </nav>
+        
+        <nav class="nav-section">
+            <div class="nav-section-title" data-i18n="settings">الإعدادات</div>
+            <div class="nav-item" onclick="openModal('systemSettings')">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text" data-i18n="systemSettings">إعدادات النظام</span>
+            </div>
+            <div class="nav-item" onclick="openModal('users')">
+                <span class="nav-icon">👥</span>
+                <span class="nav-text" data-i18n="users">المستخدمين</span>
+            </div>
+        </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard content here (same as before) -->
+        <div class="content-header">
+            <div class="page-title">
+                <div>
+                    <h2 data-i18n="mainDashboard">لوحة التحكم الرئيسية</h2>
+                    <p class="page-subtitle" data-i18n="dashboardSubtitle">نظرة شاملة على أداء الجمعية المالي</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-trend up">
+                        <span>↑</span>
+                        <span>12.5%</span>
+                    </div>
+                </div>
+                <div class="stat-body">
+                    <div class="stat-label" data-i18n="totalRevenue">إجمالي الإيرادات</div>
+                    <div class="stat-value">2,450,000</div>
+                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #FF9800 0%, #F44336 100%);">💸</div>
+                    <div class="stat-trend down">
+                        <span>↓</span>
+                        <span>5.2%</span>
+                    </div>
+                </div>
+                <div class="stat-body">
+                    <div class="stat-label" data-i18n="totalExpenses">إجمالي المصروفات</div>
+                    <div class="stat-value">1,850,000</div>
+                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon" style="background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);">📈</div>
+                    <div class="stat-trend up">
+                        <span>↑</span>
+                        <span>18.3%</span>
+                    </div>
+                </div>
+                <div class="stat-body">
+                    <div class="stat-label" data-i18n="netProfit">صافي الربح</div>
+                    <div class="stat-value">600,000</div>
+                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal Container -->
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-container" id="modalContainer">
+        <!-- Modal content will be dynamically inserted here -->
+    </div>
+    
+    <!-- CTA Section (Fixed at bottom) -->
+    <div class="cta-floating">
+        <button class="cta-btn cta-portfolio" onclick="window.open('https://moh222salah.github.io/cv', '_blank')">
+            <span class="cta-icon">💼</span>
+            <span class="cta-text">Portfolio</span>
+        </button>
+        <button class="cta-btn cta-whatsapp" onclick="window.open('https://wa.me/201113903070', '_blank')">
+            <span class="cta-icon">💬</span>
+            <span class="cta-text">WhatsApp</span>
+        </button>
+    </div>
+    
+    <script>
+
+
+        // ==================== ELITE MODAL SYSTEM ====================
+
+const modals = {
+    dashboard: {
+        ar: {
+            title: "لوحة التحكم الرئيسية",
+            content: `
+                <div class="dashboard-modal">
+                    <div class="stats-overview">
+                        <div class="overview-card">
+                            <div class="overview-icon">💰</div>
+                            <div class="overview-content">
+                                <h3>الإيرادات الشهرية</h3>
+                                <p class="overview-value">2,450,000 ر.س</p>
+                                <p class="overview-trend up">↑ 12.5% عن الشهر الماضي</p>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-icon">📊</div>
+                            <div class="overview-content">
+                                <h3>عدد الحركات المالية</h3>
+                                <p class="overview-value">156 حركة</p>
+                                <p class="overview-trend up">↑ 8% عن الشهر الماضي</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <h3>إحصائيات سريعة</h3>
+                        <div class="stats-list">
+                            <div class="stat-row">
+                                <span>القيود المعلقة</span>
+                                <strong>12 قيد</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>الفواتير المستحقة</span>
+                                <strong>8 فواتير</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>المخزون المنخفض</span>
+                                <strong>5 عناصر</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        en: {
+            title: "Main Dashboard",
+            content: `
+                <div class="dashboard-modal">
+                    <div class="stats-overview">
+                        <div class="overview-card">
+                            <div class="overview-icon">💰</div>
+                            <div class="overview-content">
+                                <h3>Monthly Revenue</h3>
+                                <p class="overview-value">SAR 2,450,000</p>
+                                <p class="overview-trend up">↑ 12.5% from last month</p>
+                            </div>
+                        </div>
+                        <div class="overview-card">
+                            <div class="overview-icon">📊</div>
+                            <div class="overview-content">
+                                <h3>Financial Transactions</h3>
+                                <p class="overview-value">156 transactions</p>
+                                <p class="overview-trend up">↑ 8% from last month</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <h3>Quick Statistics</h3>
+                        <div class="stats-list">
+                            <div class="stat-row">
+                                <span>Pending Entries</span>
+                                <strong>12 entries</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Outstanding Invoices</span>
+                                <strong>8 invoices</strong>
+                            </div>
+                            <div class="stat-row">
+                                <span>Low Stock Items</span>
+                                <strong>5 items</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    },
+    
+    chartOfAccounts: {
+        ar: {
+            title: "دليل الحسابات",
+            content: `
+                <div class="accounts-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('إضافة حساب جديد')">
+                            <span>➕</span> حساب جديد
+                        </button>
+                        <div class="search-box">
+                            <input type="text" placeholder="البحث في الحسابات...">
+                        </div>
+                    </div>
+                    
+                    <div class="accounts-tree">
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💰</span>
+                                <span class="account-name">الأصول</span>
+                                <span class="account-code">1000</span>
+                            </div>
+                            <div class="account-children">
+                                <div class="account-item">
+                                    <span class="account-icon">🏦</span>
+                                    <span class="account-name">الأصول المتداولة</span>
+                                    <span class="account-code">1100</span>
+                                </div>
+                                <div class="account-item">
+                                    <span class="account-icon">🏢</span>
+                                    <span class="account-name">الأصول الثابتة</span>
+                                    <span class="account-code">1200</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💳</span>
+                                <span class="account-name">الخصوم</span>
+                                <span class="account-code">2000</span>
+                            </div>
+                            <div class="account-children">
+                                <div class="account-item">
+                                    <span class="account-icon">📋</span>
+                                    <span class="account-name">الخصوم المتداولة</span>
+                                    <span class="account-code">2100</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💼</span>
+                                <span class="account-name">حقوق الملكية</span>
+                                <span class="account-code">3000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        en: {
+            title: "Chart of Accounts",
+            content: `
+                <div class="accounts-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('Add New Account')">
+                            <span>➕</span> New Account
+                        </button>
+                        <div class="search-box">
+                            <input type="text" placeholder="Search accounts...">
+                        </div>
+                    </div>
+                    
+                    <div class="accounts-tree">
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💰</span>
+                                <span class="account-name">Assets</span>
+                                <span class="account-code">1000</span>
+                            </div>
+                            <div class="account-children">
+                                <div class="account-item">
+                                    <span class="account-icon">🏦</span>
+                                    <span class="account-name">Current Assets</span>
+                                    <span class="account-code">1100</span>
+                                </div>
+                                <div class="account-item">
+                                    <span class="account-icon">🏢</span>
+                                    <span class="account-name">Fixed Assets</span>
+                                    <span class="account-code">1200</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💳</span>
+                                <span class="account-name">Liabilities</span>
+                                <span class="account-code">2000</span>
+                            </div>
+                            <div class="account-children">
+                                <div class="account-item">
+                                    <span class="account-icon">📋</span>
+                                    <span class="account-name">Current Liabilities</span>
+                                    <span class="account-code">2100</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="account-group">
+                            <div class="account-item parent">
+                                <span class="account-icon">💼</span>
+                                <span class="account-name">Equity</span>
+                                <span class="account-code">3000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    },
+    
+    journalEntries: {
+        ar: {
+            title: "القيود اليومية",
+            content: `
+                <div class="journal-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('قيد جديد')">
+                            <span>➕</span> قيد يومية جديد
+                        </button>
+                        <button class="btn btn-outline">
+                            <span>📄</span> تصدير
+                        </button>
+                    </div>
+                    
+                    <div class="journal-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>رقم القيد</th>
+                                    <th>التاريخ</th>
+                                    <th>الوصف</th>
+                                    <th>المبلغ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#JE-2024-001</strong></td>
+                                    <td>16 فبراير 2026</td>
+                                    <td>قيد افتتاحي</td>
+                                    <td>250,000 ر.س</td>
+                                    <td><span class="status-badge approved">معتمد</span></td>
+                                    <td>
+                                        <button class="btn-icon">👁️</button>
+                                        <button class="btn-icon">✏️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#JE-2024-002</strong></td>
+                                    <td>15 فبراير 2026</td>
+                                    <td>مصاريف إدارية</td>
+                                    <td>45,000 ر.س</td>
+                                    <td><span class="status-badge pending">قيد المراجعة</span></td>
+                                    <td>
+                                        <button class="btn-icon">👁️</button>
+                                        <button class="btn-icon">✏️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        en: {
+            title: "Journal Entries",
+            content: `
+                <div class="journal-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('New Entry')">
+                            <span>➕</span> New Journal Entry
+                        </button>
+                        <button class="btn btn-outline">
+                            <span>📄</span> Export
+                        </button>
+                    </div>
+                    
+                    <div class="journal-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Entry No.</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#JE-2024-001</strong></td>
+                                    <td>Feb 16, 2026</td>
+                                    <td>Opening Entry</td>
+                                    <td>SAR 250,000</td>
+                                    <td><span class="status-badge approved">Approved</span></td>
+                                    <td>
+                                        <button class="btn-icon">👁️</button>
+                                        <button class="btn-icon">✏️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#JE-2024-002</strong></td>
+                                    <td>Feb 15, 2026</td>
+                                    <td>Admin Expenses</td>
+                                    <td>SAR 45,000</td>
+                                    <td><span class="status-badge pending">Under Review</span></td>
+                                    <td>
+                                        <button class="btn-icon">👁️</button>
+                                        <button class="btn-icon">✏️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        }
+    },
+    
+    salesInvoices: {
+        ar: {
+            title: "فواتير المبيعات",
+            content: `
+                <div class="invoices-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('فاتورة جديدة')">
+                            <span>➕</span> فاتورة مبيعات جديدة
+                        </button>
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>كل الفواتير</option>
+                                <option>المدفوعة</option>
+                                <option>المعلقة</option>
+                                <option>المتأخرة</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="invoices-grid">
+                        <div class="invoice-card">
+                            <div class="invoice-header">
+                                <div>
+                                    <h4>#INV-2024-001</h4>
+                                    <p>شركة النخبة التجارية</p>
+                                </div>
+                                <span class="status-badge paid">مدفوعة</span>
+                            </div>
+                            <div class="invoice-details">
+                                <div class="detail-row">
+                                    <span>التاريخ:</span>
+                                    <strong>16 فبراير 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>الاستحقاق:</span>
+                                    <strong>16 مارس 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>المبلغ:</span>
+                                    <strong class="amount">85,500 ر.س</strong>
+                                </div>
+                            </div>
+                            <div class="invoice-actions">
+                                <button class="btn btn-sm">عرض</button>
+                                <button class="btn btn-sm">طباعة</button>
+                            </div>
+                        </div>
+                        
+                        <div class="invoice-card">
+                            <div class="invoice-header">
+                                <div>
+                                    <h4>#INV-2024-002</h4>
+                                    <p>مؤسسة التقنية الحديثة</p>
+                                </div>
+                                <span class="status-badge pending">معلقة</span>
+                            </div>
+                            <div class="invoice-details">
+                                <div class="detail-row">
+                                    <span>التاريخ:</span>
+                                    <strong>15 فبراير 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>الاستحقاق:</span>
+                                    <strong>15 مارس 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>المبلغ:</span>
+                                    <strong class="amount">42,000 ر.س</strong>
+                                </div>
+                            </div>
+                            <div class="invoice-actions">
+                                <button class="btn btn-sm">عرض</button>
+                                <button class="btn btn-sm">إرسال</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        en: {
+            title: "Sales Invoices",
+            content: `
+                <div class="invoices-modal">
+                    <div class="modal-toolbar">
+                        <button class="btn btn-primary" onclick="alert('New Invoice')">
+                            <span>➕</span> New Sales Invoice
+                        </button>
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>All Invoices</option>
+                                <option>Paid</option>
+                                <option>Pending</option>
+                                <option>Overdue</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="invoices-grid">
+                        <div class="invoice-card">
+                            <div class="invoice-header">
+                                <div>
+                                    <h4>#INV-2024-001</h4>
+                                    <p>Elite Trading Company</p>
+                                </div>
+                                <span class="status-badge paid">Paid</span>
+                            </div>
+                            <div class="invoice-details">
+                                <div class="detail-row">
+                                    <span>Date:</span>
+                                    <strong>Feb 16, 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Due:</span>
+                                    <strong>Mar 16, 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Amount:</span>
+                                    <strong class="amount">SAR 85,500</strong>
+                                </div>
+                            </div>
+                            <div class="invoice-actions">
+                                <button class="btn btn-sm">View</button>
+                                <button class="btn btn-sm">Print</button>
+                            </div>
+                        </div>
+                        
+                        <div class="invoice-card">
+                            <div class="invoice-header">
+                                <div>
+                                    <h4>#INV-2024-002</h4>
+                                    <p>Modern Technology Est.</p>
+                                </div>
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                            <div class="invoice-details">
+                                <div class="detail-row">
+                                    <span>Date:</span>
+                                    <strong>Feb 15, 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Due:</span>
+                                    <strong>Mar 15, 2026</strong>
+                                </div>
+                                <div class="detail-row">
+                                    <span>Amount:</span>
+                                    <strong class="amount">SAR 42,000</strong>
+                                </div>
+                            </div>
+                            <div class="invoice-actions">
+                                <button class="btn btn-sm">View</button>
+                                <button class="btn btn-sm">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    }
+};
+
+// Add more modals for other sections...
+const defaultModal = {
+    ar: {
+        title: "قريباً",
+        content: `
+            <div class="coming-soon">
+                <div class="coming-soon-icon">🚀</div>
+                <h3>هذا القسم قيد التطوير</h3>
+                <p>سيتم إضافة المزيد من المميزات قريباً</p>
+            </div>
+        `
+    },
+    en: {
+        title: "Coming Soon",
+        content: `
+            <div class="coming-soon">
+                <div class="coming-soon-icon">🚀</div>
+                <h3>This Section is Under Development</h3>
+                <p>More features will be added soon</p>
+            </div>
+        `
+    }
+};
+
+let currentLang = 'ar';
+let currentTheme = 'light';
+
+// ==================== MODAL FUNCTIONS ====================
+
+function openModal(modalId) {
+    const modalData = modals[modalId] || defaultModal;
+    const data = modalData[currentLang];
+    
+    const modalContainer = document.getElementById('modalContainer');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    
+    modalContainer.innerHTML = `
+        <div class="modal-header">
+            <h2 class="modal-title">${data.title}</h2>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+            ${data.content}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" onclick="closeModal()">
+                ${currentLang === 'ar' ? 'إغلاق' : 'Close'}
+            </button>
+            <button class="btn btn-primary">
+                ${currentLang === 'ar' ? 'حفظ' : 'Save'}
+            </button>
+        </div>
+    `;
+    
+    // Add CTA to modal body
+    const modalBody = modalContainer.querySelector('.modal-body');
+    const ctaSection = document.createElement('div');
+    ctaSection.className = 'modal-cta';
+    ctaSection.innerHTML = `
+        <div class="cta-content">
+            <h3>${currentLang === 'ar' ? 'تواصل معنا' : 'Get in Touch'}</h3>
+            <div class="cta-buttons">
+                <a href="https://moh222salah.github.io/cv" target="_blank" class="btn btn-primary">
+                    <span>💼</span>
+                    <span>Portfolio</span>
+                </a>
+                <a href="https://wa.me/201113903070" target="_blank" class="btn btn-primary cta-whatsapp">
+                    <span>💬</span>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    `;
+    modalBody.appendChild(ctaSection);
+    
+    // Show modal
+    modalOverlay.classList.add('active');
+    modalContainer.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Close sidebar on mobile
+    if (window.innerWidth < 1024) {
+        toggleSidebar();
+    }
+}
+
+function closeModal() {
+    const modalContainer = document.getElementById('modalContainer');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    
+    modalOverlay.classList.remove('active');
+    modalContainer.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// ==================== THEME TOGGLE ====================
+
+function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.body.classList.toggle('dark-mode');
+    
+    const themeIcon = document.querySelector('.theme-icon');
+    themeIcon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    
+    localStorage.setItem('theme', currentTheme);
+}
+
+// ==================== LANGUAGE TOGGLE ====================
+
+const translations = {
+    ar: {
+        brandTitle: "جمعية الهميج للخدمات الإنسانية",
+        brandSubtitle: "نظام المحاسبة المتكامل",
+        searchPlaceholder: "ابحث عن أي شيء... (Ctrl + K)",
+        dashboard: "لوحة التحكم",
+        mainDashboard: "الرئيسية",
+        analyticalReports: "التقارير التحليلية",
+        accounting: "المحاسبة",
+        chartOfAccounts: "دليل الحسابات",
+        journalEntries: "القيود اليومية",
+        financialTransactions: "الحركات المالية",
+        banksVaults: "البنوك والصناديق",
+        salesPurchases: "المبيعات والمشتريات",
+        salesInvoices: "فواتير المبيعات",
+        purchaseInvoices: "فواتير المشتريات",
+        quotations: "عروض الأسعار",
+        inventory: "المخزون",
+        inventoryManagement: "إدارة المخزون",
+        warehouses: "المستودعات",
+        inventoryMovements: "حركات المخزون",
+        reports: "التقارير",
+        financialReports: "تقارير مالية",
+        salesReports: "تقارير المبيعات",
+        inventoryReports: "تقارير المخزون",
+        settings: "الإعدادات",
+        systemSettings: "إعدادات النظام",
+        users: "المستخدمين",
+        totalRevenue: "إجمالي الإيرادات",
+        totalExpenses: "إجمالي المصروفات",
+        netProfit: "صافي الربح",
+        thisMonth: "ريال سعودي • هذا الشهر",
+        dashboardSubtitle: "نظرة شاملة على أداء الجمعية المالي"
+    },
+    en: {
+        brandTitle: "Al-Humaij Humanitarian Services",
+        brandSubtitle: "Integrated Accounting System",
+        searchPlaceholder: "Search anything... (Ctrl + K)",
+        dashboard: "Dashboard",
+        mainDashboard: "Main Dashboard",
+        analyticalReports: "Analytical Reports",
+        accounting: "Accounting",
+        chartOfAccounts: "Chart of Accounts",
+        journalEntries: "Journal Entries",
+        financialTransactions: "Financial Transactions",
+        banksVaults: "Banks & Vaults",
+        salesPurchases: "Sales & Purchases",
+        salesInvoices: "Sales Invoices",
+        purchaseInvoices: "Purchase Invoices",
+        quotations: "Quotations",
+        inventory: "Inventory",
+        inventoryManagement: "Inventory Management",
+        warehouses: "Warehouses",
+        inventoryMovements: "Inventory Movements",
+        reports: "Reports",
+        financialReports: "Financial Reports",
+        salesReports: "Sales Reports",
+        inventoryReports: "Inventory Reports",
+        settings: "Settings",
+        systemSettings: "System Settings",
+        users: "Users",
+        totalRevenue: "Total Revenue",
+        totalExpenses: "Total Expenses",
+        netProfit: "Net Profit",
+        thisMonth: "Saudi Riyal • This Month",
+        dashboardSubtitle: "Comprehensive overview of association's performance"
+    }
+};
+
+function toggleLanguage() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    
+    document.documentElement.setAttribute('dir', dir);
+    document.documentElement.setAttribute('lang', currentLang);
+    
+    // Update all i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key];
+        }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[currentLang][key]) {
+            el.placeholder = translations[currentLang][key];
+        }
+    });
+    
+    // Update language toggle text
+    document.querySelector('.lang-text').textContent = currentLang === 'ar' ? 'EN' : 'ع';
+    
+    // Close any open modal and reopen with new language
+    if (document.querySelector('.modal-container.active')) {
+        closeModal();
+    }
+    
+    localStorage.setItem('language', currentLang);
+    
+    // Smooth transition
+    document.body.style.opacity = '0.7';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 200);
+}
+
+// ==================== SIDEBAR TOGGLE ====================
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+    
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    if (sidebar.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+// ==================== KEYBOARD SHORTCUTS ====================
+
+document.addEventListener('keydown', (e) => {
+    // Ctrl+K for search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        document.querySelector('.search-input').focus();
+    }
+    
+    // ESC to close modal
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// ==================== PREVENT DOUBLE TAP ZOOM ====================
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (event) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+// ==================== INITIALIZATION ====================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        toggleTheme();
+    }
+    
+    // Load saved language
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && savedLang !== currentLang) {
+        toggleLanguage();
+    }
+    
+    // Close modal on overlay click
+    document.querySelector('.modal-overlay').addEventListener('click', closeModal);
+    
+    // Close sidebar on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+            document.querySelector('.sidebar').classList.remove('active');
+            document.querySelector('.sidebar-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    console.log('%c🌟 Al-Humaij Accounting System VIP', 'color: #00897B; font-size: 20px; font-weight: bold;');
+    console.log('%c✨ Elite Modal System Active', 'color: #D4AF37; font-size: 14px;');
+});
+    
+    </script>
+</body>
+</html>

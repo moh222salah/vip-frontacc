@@ -1,245 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#00897B">
-    <title>جمعية الهميج - النظام المحاسبي المتكامل</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Sidebar Overlay -->
-    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
-    
-    <!-- Top Navbar -->
-    <nav class="top-navbar">
-        <div class="navbar-content">
-            <button class="mobile-menu-toggle" onclick="toggleSidebar()">
-                <span>☰</span>
-            </button>
-            
-            <div class="brand">
-                <div class="brand-logo">ه</div>
-                <div class="brand-text">
-                    <h1 data-i18n="brandTitle">جمعية الهميج للخدمات الإنسانية</h1>
-                    <p data-i18n="brandSubtitle">نظام المحاسبة المتكامل</p>
-                </div>
-            </div>
-            
-            <div class="global-search">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="ابحث عن أي شيء... (Ctrl + K)">
-            </div>
-            
-            <div class="top-actions">
-                <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع">
-                    <span class="theme-icon">🌙</span>
-                </button>
-                
-                <button class="lang-toggle" onclick="toggleLanguage()">
-                    <span class="lang-icon">🌐</span>
-                    <span class="lang-text">EN</span>
-                </button>
-                
-                <button class="action-btn" title="الإشعارات">
-                    <span>🔔</span>
-                    <span class="notification-badge">3</span>
-                </button>
-                
-                <button class="action-btn" title="الرسائل">
-                    <span>💬</span>
-                </button>
-                
-                <div class="user-profile">
-                    <div class="user-avatar">م</div>
-                    <div class="user-info">
-                        <h4>مدير النظام</h4>
-                        <p>متصل الآن</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="dashboard">لوحة التحكم</div>
-            <div class="nav-item active" onclick="openModal('dashboard')">
-                <span class="nav-icon">📊</span>
-                <span class="nav-text" data-i18n="mainDashboard">الرئيسية</span>
-            </div>
-            <div class="nav-item" onclick="openModal('reports')">
-                <span class="nav-icon">📈</span>
-                <span class="nav-text" data-i18n="analyticalReports">التقارير التحليلية</span>
-            </div>
-        </nav>
-        
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="accounting">المحاسبة</div>
-            <div class="nav-item" onclick="openModal('chartOfAccounts')">
-                <span class="nav-icon">💰</span>
-                <span class="nav-text" data-i18n="chartOfAccounts">دليل الحسابات</span>
-            </div>
-            <div class="nav-item" onclick="openModal('journalEntries')">
-                <span class="nav-icon">📝</span>
-                <span class="nav-text" data-i18n="journalEntries">القيود اليومية</span>
-                <span class="nav-badge">2</span>
-            </div>
-            <div class="nav-item" onclick="openModal('transactions')">
-                <span class="nav-icon">💵</span>
-                <span class="nav-text" data-i18n="financialTransactions">الحركات المالية</span>
-            </div>
-            <div class="nav-item" onclick="openModal('banks')">
-                <span class="nav-icon">🏦</span>
-                <span class="nav-text" data-i18n="banksVaults">البنوك والصناديق</span>
-            </div>
-        </nav>
-        
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="salesPurchases">المبيعات والمشتريات</div>
-            <div class="nav-item" onclick="openModal('salesInvoices')">
-                <span class="nav-icon">🛒</span>
-                <span class="nav-text" data-i18n="salesInvoices">فواتير المبيعات</span>
-            </div>
-            <div class="nav-item" onclick="openModal('purchaseInvoices')">
-                <span class="nav-icon">📦</span>
-                <span class="nav-text" data-i18n="purchaseInvoices">فواتير المشتريات</span>
-            </div>
-            <div class="nav-item" onclick="openModal('quotes')">
-                <span class="nav-icon">💳</span>
-                <span class="nav-text" data-i18n="quotations">عروض الأسعار</span>
-            </div>
-        </nav>
-        
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="inventory">المخزون</div>
-            <div class="nav-item" onclick="openModal('inventoryManagement')">
-                <span class="nav-icon">📊</span>
-                <span class="nav-text" data-i18n="inventoryManagement">إدارة المخزون</span>
-            </div>
-            <div class="nav-item" onclick="openModal('warehouses')">
-                <span class="nav-icon">🏭</span>
-                <span class="nav-text" data-i18n="warehouses">المستودعات</span>
-            </div>
-            <div class="nav-item" onclick="openModal('movements')">
-                <span class="nav-icon">🔄</span>
-                <span class="nav-text" data-i18n="inventoryMovements">حركات المخزون</span>
-            </div>
-        </nav>
-        
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="reports">التقارير</div>
-            <div class="nav-item" onclick="openModal('financialReports')">
-                <span class="nav-icon">📋</span>
-                <span class="nav-text" data-i18n="financialReports">تقارير مالية</span>
-            </div>
-            <div class="nav-item" onclick="openModal('salesReports')">
-                <span class="nav-icon">📊</span>
-                <span class="nav-text" data-i18n="salesReports">تقارير المبيعات</span>
-            </div>
-            <div class="nav-item" onclick="openModal('inventoryReports')">
-                <span class="nav-icon">📈</span>
-                <span class="nav-text" data-i18n="inventoryReports">تقارير المخزون</span>
-            </div>
-        </nav>
-        
-        <nav class="nav-section">
-            <div class="nav-section-title" data-i18n="settings">الإعدادات</div>
-            <div class="nav-item" onclick="openModal('systemSettings')">
-                <span class="nav-icon">⚙️</span>
-                <span class="nav-text" data-i18n="systemSettings">إعدادات النظام</span>
-            </div>
-            <div class="nav-item" onclick="openModal('users')">
-                <span class="nav-icon">👥</span>
-                <span class="nav-text" data-i18n="users">المستخدمين</span>
-            </div>
-        </nav>
-    </aside>
-    
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Dashboard content here (same as before) -->
-        <div class="content-header">
-            <div class="page-title">
-                <div>
-                    <h2 data-i18n="mainDashboard">لوحة التحكم الرئيسية</h2>
-                    <p class="page-subtitle" data-i18n="dashboardSubtitle">نظرة شاملة على أداء الجمعية المالي</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-trend up">
-                        <span>↑</span>
-                        <span>12.5%</span>
-                    </div>
-                </div>
-                <div class="stat-body">
-                    <div class="stat-label" data-i18n="totalRevenue">إجمالي الإيرادات</div>
-                    <div class="stat-value">2,450,000</div>
-                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #FF9800 0%, #F44336 100%);">💸</div>
-                    <div class="stat-trend down">
-                        <span>↓</span>
-                        <span>5.2%</span>
-                    </div>
-                </div>
-                <div class="stat-body">
-                    <div class="stat-label" data-i18n="totalExpenses">إجمالي المصروفات</div>
-                    <div class="stat-value">1,850,000</div>
-                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-header">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);">📈</div>
-                    <div class="stat-trend up">
-                        <span>↑</span>
-                        <span>18.3%</span>
-                    </div>
-                </div>
-                <div class="stat-body">
-                    <div class="stat-label" data-i18n="netProfit">صافي الربح</div>
-                    <div class="stat-value">600,000</div>
-                    <div class="stat-subtitle" data-i18n="thisMonth">ريال سعودي • هذا الشهر</div>
-                </div>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Modal Container -->
-    <div class="modal-overlay" onclick="closeModal()"></div>
-    <div class="modal-container" id="modalContainer">
-        <!-- Modal content will be dynamically inserted here -->
-    </div>
-    
-    <!-- CTA Section (Fixed at bottom) -->
-    <div class="cta-floating">
-        <button class="cta-btn cta-portfolio" onclick="window.open('https://moh222salah.github.io/cv', '_blank')">
-            <span class="cta-icon">💼</span>
-            <span class="cta-text">Portfolio</span>
-        </button>
-        <button class="cta-btn cta-whatsapp" onclick="window.open('https://wa.me/201113903070', '_blank')">
-            <span class="cta-icon">💬</span>
-            <span class="cta-text">WhatsApp</span>
-        </button>
-    </div>
-    
-    <script src="script.js"></script>
-</body>
-</html>
