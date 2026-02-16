@@ -1,4 +1,4 @@
-# 🌟 Al-Humaij Accounting System VIP
+# 🌟 VIP Accounting System
 
 ### *Enterprise-Grade Financial Management Platform for the Gulf Region*
 
