@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="نظام محاسبي حديث وفخم للشركات السعودية والخليجية - إدارة مالية احترافية بتصميم عالمي">
+    <meta name="keywords" content="نظام محاسبي, ERP, محاسبة سحابية, برنامج محاسبة, السعودية, الخليج">
+    <meta name="author" content="VIP Front Accounting">
+    <meta name="theme-color" content="#0066FF">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="VIP Front Accounting - نظام محاسبي فاخر">
+    <meta property="og:description" content="الحل المحاسبي الأكثر احترافية للشركات الخليجية">
+    <meta property="og:type" content="website">
+    
+    <title>VIP Front Accounting </title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💎</text></svg>">
+
+    <!-- Styles -->
+    <style>
+
+        /* ============================================
+   VIP Front Accounting - Luxury Design System
+   ============================================ */
+
+/* === CSS Custom Properties (Design Tokens) === */
+:root {
+    /* Color System - Light Mode */
+    --primary: #0066FF;
+    --primary-hover: #0052CC;
+    --primary-light: #E6F0FF;
+    --secondary: #10B981;
+    --secondary-hover: #059669;
+    --accent: #8B5CF6;
+    --accent-hover: #7C3AED;
+    
+    /* Neutrals */
+    --dark: #0F172A;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E1;
+    --gray-400: #94A3B8;
+    --gray-500: #64748B;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+    
+    /* Semantic Colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+    
+    /* Gold Accent for VIP Feel */
+    --gold: #D4AF37;
+    --gold-light: #F4E5C2;
+    --gold-dark: #B8960F;
+    
+    /* Backgrounds */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8FAFC;
+    --bg-tertiary: #F1F5F9;
+    
+    /* Text */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-tertiary: #94A3B8;
+    --text-inverse: #FFFFFF;
+    
+    /* Borders */
+    --border-color: #E2E8F0;
+    --border-light: #F1F5F9;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-gold: 0 8px 32px rgba(212, 175, 55, 0.15);
+    --shadow-primary: 0 8px 32px rgba(0, 102, 255, 0.15);
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+    /* Typography */
+    --font-arabic: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-english: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-current: var(--font-arabic);
+    
+    /* Font Sizes (Perfect Fourth Scale - 1.125) */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.266rem;    /* 20.25px */
+    --text-2xl: 1.424rem;   /* 22.78px */
+    --text-3xl: 1.602rem;   /* 25.63px */
+    --text-4xl: 1.802rem;   /* 28.83px */
+    --text-5xl: 2.027rem;   /* 32.43px */
+    --text-6xl: 2.281rem;   /* 36.48px */
+    
+    /* Spacing (4px base) */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+    --space-20: 5rem;     /* 80px */
+    --space-24: 6rem;     /* 96px */
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;  /* 6px */
+    --radius-md: 0.5rem;    /* 8px */
+    --radius-lg: 0.75rem;   /* 12px */
+    --radius-xl: 1rem;      /* 16px */
+    --radius-2xl: 1.5rem;   /* 24px */
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-index Layers */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* === Dark Mode === */
+[data-theme="dark"] {
+    --primary: #3B82F6;
+    --primary-hover: #2563EB;
+    --primary-light: #1E3A8A;
+    
+    --bg-primary: #0F172A;
+    --bg-secondary: #1E293B;
+    --bg-tertiary: #334155;
+    
+    --text-primary: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --text-tertiary: #64748B;
+    
+    --border-color: #334155;
+    --border-light: #1E293B;
+    
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+/* === Reset & Base === */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-current);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color var(--transition-base), color var(--transition-base);
+    overflow-x: hidden;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    --font-current: var(--font-arabic);
+}
+
+[dir="ltr"] {
+    --font-current: var(--font-english);
+}
+
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-6xl); }
+h2 { font-size: var(--text-5xl); }
+h3 { font-size: var(--text-4xl); }
+h4 { font-size: var(--text-3xl); }
+h5 { font-size: var(--text-2xl); }
+h6 { font-size: var(--text-xl); }
+
+p {
+    margin-bottom: var(--space-4);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* === Container === */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .container { padding: 0 var(--space-8); }
+}
+
+/* === Header Navigation === */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-fixed);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-base);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: var(--space-6);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-weight: 700;
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.nav-logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo-icon {
+    font-size: var(--text-3xl);
+    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.nav-menu {
+    display: none;
+    flex: 1;
+}
+
+@media (min-width: 1024px) {
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-8);
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    padding: var(--space-2) 0;
+    transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.theme-toggle,
+.lang-toggle,
+.nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+}
+
+.lang-text {
+    font-weight: 600;
+    font-size: var(--text-sm);
+}
+
+.nav-toggle {
+    display: flex;
+}
+
+@media (min-width: 1024px) {
+    .nav-toggle {
+        display: none;
+    }
+}
+
+.hamburger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: all var(--transition-base);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transition: all var(--transition-base);
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { bottom: -7px; }
+
+/* === Hero Section === */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: var(--space-20);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        var(--primary-light) 0%, 
+        var(--bg-primary) 50%, 
+        var(--gold-light) 100%);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+[data-theme="dark"] .hero-bg {
+    background: linear-gradient(135deg, 
+        #1E3A8A 0%, 
+        var(--bg-primary) 50%, 
+        #78350F 100%);
+    opacity: 0.2;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .hero .container {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.hero-content {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        text-align: start;
+    }
+    
+    [dir="rtl"] .hero-content {
+        text-align: start;
+    }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-6);
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+[dir="rtl"] .hero-title {
+    animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+    animation: fadeInUp 1s ease-out;
+}
+
+@media (min-width: 1024px) {
+    .hero-subtitle {
+        margin: 0 0 var(--space-8);
+    }
+    
+    [dir="rtl"] .hero-subtitle {
+        margin: 0 0 var(--space-8);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@media (min-width: 640px) {
+    .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    @media (min-width: 1024px) {
+        .hero-cta {
+            justify-content: flex-start;
+        }
+        
+        [dir="rtl"] .hero-cta {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .stat-item {
+        text-align: start;
+    }
+    
+    [dir="rtl"] .stat-item {
+        text-align: start;
+    }
+}
+
+.stat-number {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-2);
+}
+
+.stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.hero-visual {
+    position: relative;
+    animation: fadeInRight 1s ease-out;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-mockup {
+    position: relative;
+    perspective: 1000px;
+}
+
+.mockup-window {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl), var(--shadow-gold);
+    overflow: hidden;
+    transform: rotateY(-5deg) rotateX(5deg);
+    transition: transform var(--transition-slow);
+}
+
+.mockup-window:hover {
+    transform: rotateY(0) rotateX(0);
+}
+
+.window-header {
+    padding: var(--space-4);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-dots {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.window-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gray-400);
+}
+
+.window-dots span:nth-child(1) { background: #FF5F57; }
+.window-dots span:nth-child(2) { background: #FFBD2E; }
+.window-dots span:nth-child(3) { background: #28CA42; }
+
+.window-content {
+    padding: var(--space-6);
+    min-height: 400px;
+}
+
+.dashboard-preview {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-4);
+    height: 100%;
+}
+
+.preview-sidebar {
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: var(--radius-lg);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.preview-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.preview-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.preview-card {
+    aspect-ratio: 1.5;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+.preview-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.preview-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.preview-chart {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-chart::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(180deg, transparent, var(--primary));
+    opacity: 0.3;
+    clip-path: polygon(
+        0% 100%, 10% 80%, 20% 85%, 30% 70%, 
+        40% 75%, 50% 60%, 60% 65%, 70% 50%, 
+        80% 55%, 90% 40%, 100% 45%, 100% 100%
+    );
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* === Buttons === */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-base), height var(--transition-base);
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-primary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-lg);
+}
+
+/* === Section Styles === */
+section {
+    padding: var(--space-20) 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-16);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+}
+
+/* === Problem/Solution Section === */
+.problem-solution {
+    background: var(--bg-secondary);
+}
+
+.ps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .ps-grid {
+        grid-template-columns: 1fr auto 1fr;
+    }
+}
+
+.ps-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-base);
+}
+
+.ps-card:hover {
+    transform: translateY(-5px);
+}
+
+.ps-icon {
+    font-size: var(--text-6xl);
+    margin-bottom: var(--space-4);
+}
+
+.ps-card h3 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-6);
+}
+
+.ps-card ul {
+    list-style: none;
+}
+
+.ps-card li {
+    padding: var(--space-3) 0;
+    padding-inline-start: var(--space-6);
+    position: relative;
+    font-size: var(--text-lg);
+}
+
+.ps-card li::before {
+    content: '•';
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--primary);
+    font-size: var(--text-2xl);
+}
+
+.problem {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.problem li {
+    color: var(--text-secondary);
+}
+
+.solution {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
+}
+
+.solution li::before {
+    content: '✓';
+    color: var(--secondary);
+}
+
+.ps-arrow {
+    display: none;
+    color: var(--primary);
+    animation: slideRight 1s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+    .ps-arrow {
+        display: block;
+    }
+}
+
+@keyframes slideRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+[dir="rtl"] .ps-arrow {
+    animation: slideLeft 1s ease-in-out infinite;
+}
+
+@keyframes slideLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+}
+
+/* === Features Section === */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl), var(--shadow-gold);
+    border-color: var(--gold);
+}
+
+.feature-icon {
+    font-size: var(--text-6xl);
+    margin-bottom: var(--space-4);
+    display: inline-block;
+    transition: transform var(--transition-slow);
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.feature-card h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* === Why Us Section === */
+.why-us {
+    background: linear-gradient(135deg, var(--primary-light), var(--gold-light));
+}
+
+[data-theme="dark"] .why-us {
+    background: linear-gradient(135deg, #1E3A8A, #78350F);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+}
+
+.why-card {
+    background: var(--bg-primary);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    transition: height var(--transition-base);
+}
+
+.why-card:hover::before {
+    height: 100%;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.why-number {
+    font-size: var(--text-4xl);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-4);
+}
+
+.why-card h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+}
+
+.why-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* === Comparison Table === */
+.comparison {
+    background: var(--bg-secondary);
+}
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-primary);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: var(--space-4) var(--space-6);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+    background: var(--bg-secondary);
+    font-weight: 700;
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+}
+
+.comparison-table th.highlight {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+}
+
+.comparison-table td.highlight {
+    background: var(--primary-light);
+    font-weight: 600;
+}
+
+[data-theme="dark"] .comparison-table td.highlight {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.table-logo {
+    font-size: var(--text-xl);
+    font-weight: 700;
+}
+
+.check {
+    color: var(--secondary);
+    font-size: var(--text-xl);
+    font-weight: 700;
+}
+
+.cross {
+    color: var(--error);
+    font-size: var(--text-xl);
+    font-weight: 700;
+}
+
+/* === Pricing Section === */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+}
+
+.pricing-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl), var(--shadow-gold);
+}
+
+.pricing-card.featured {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-xl), var(--shadow-gold);
+    transform: scale(1.05);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: white;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-header h3 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.currency {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.amount {
+    font-size: var(--text-6xl);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.period {
+    font-size: var(--text-lg);
+    color: var(--text-tertiary);
+}
+
+.pricing-desc {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: var(--space-8);
+}
+
+.pricing-features li {
+    padding: var(--space-3) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+}
+
+.pricing-features .check {
+    flex-shrink: 0;
+}
+
+/* === Demo Section === */
+.demo {
+    background: var(--bg-secondary);
+}
+
+.demo-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .demo-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.demo-info h3 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-6);
+}
+
+.demo-features {
+    list-style: none;
+    margin-bottom: var(--space-8);
+}
+
+.demo-features li {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.demo-features li:last-child {
+    border-bottom: none;
+}
+
+.demo-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+}
+
+.demo-features strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.demo-features p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.demo-cta {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .demo-cta {
+        text-align: start;
+    }
+    
+    [dir="rtl"] .demo-cta {
+        text-align: start;
+    }
+}
+
+.demo-note {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+.demo-visual {
+    perspective: 1000px;
+}
+
+.demo-browser {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    transform: rotateY(5deg);
+    transition: transform var(--transition-slow);
+}
+
+.demo-browser:hover {
+    transform: rotateY(0);
+}
+
+.browser-header {
+    background: var(--bg-secondary);
+    padding: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.browser-dots {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.browser-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gray-400);
+}
+
+.browser-dots span:nth-child(1) { background: #FF5F57; }
+.browser-dots span:nth-child(2) { background: #FFBD2E; }
+.browser-dots span:nth-child(3) { background: #28CA42; }
+
+.browser-url {
+    flex: 1;
+    background: var(--bg-tertiary);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    text-align: center;
+}
+
+.browser-content {
+    padding: var(--space-6);
+}
+
+.demo-screen {
+    background: linear-gradient(135deg, var(--primary-light), var(--gold-light));
+    border-radius: var(--radius-lg);
+    aspect-ratio: 16/10;
+    animation: demoAnimation 3s ease-in-out infinite;
+}
+
+@keyframes demoAnimation {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* === Testimonials Section === */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+}
+
+.testimonial-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), var(--shadow-gold);
+}
+
+.stars {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-4);
+}
+
+.testimonial-text {
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+    line-height: 1.7;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-3xl);
+}
+
+.author-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.author-title {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+/* === CTA Section === */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: white;
+    margin-bottom: var(--space-4);
+}
+
+.cta-subtitle {
+    font-size: var(--text-xl);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-8);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .cta-buttons {
+        flex-direction: row;
+    }
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.cta-buttons .btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.cta-buttons .btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* === Footer === */
+.footer {
+    background: var(--bg-secondary);
+    padding: var(--space-20) 0 var(--space-8);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 2fr 3fr;
+    }
+}
+
+.footer-brand {
+    max-width: 400px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+}
+
+.footer-desc {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+}
+
+.footer-social a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-8);
+}
+
+.footer-column h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: var(--space-3);
+}
+
+.footer-column a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: start;
+    }
+}
+
+.footer-dev a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.footer-dev a:hover {
+    text-decoration: underline;
+}
+
+/* === Back to Top Button === */
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-8);
+    inset-inline-end: var(--space-8);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    z-index: var(--z-fixed);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), var(--shadow-primary);
+}
+
+/* === Utility Classes === */
+.text-center { text-align: center; }
+.text-start { text-align: start; }
+.text-end { text-align: end; }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+/* === Responsive === */
+@media (max-width: 767px) {
+    :root {
+        --space-20: 3rem;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+بي      padding-bottom: var(--space-12);
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: var(--text-base);
+    }
+    
+    .mockup-window {
+        transform: none;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: var(--text-base);
+    }
+}
+
+/* === Print Styles === */
+@media print {
+    .header,
+    .hero-scroll,
+    .back-to-top,
+    .nav-controls {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* === Accessibility === */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* === Smooth Animations === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+        
+    </style>
+
+
+
+
+</head>
+<body>
+    
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <span class="logo-icon">💎</span>
+                    <span class="logo-text" data-en="VIP Front Accounting" data-ar="VIP فرونت أكونتنج">VIP فرونت أكونتنج</span>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="#hero" class="nav-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                        <li><a href="#features" class="nav-link" data-en="Features" data-ar="المميزات">المميزات</a></li>
+                        <li><a href="#why-us" class="nav-link" data-en="Why Us" data-ar="لماذا نحن">لماذا نحن</a></li>
+                        <li><a href="#pricing" class="nav-link" data-en="Pricing" data-ar="الأسعار">الأسعار</a></li>
+                        <li><a href="#demo" class="nav-link" data-en="Demo" data-ar="تجربة مجانية">تجربة مجانية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                        <span class="lang-text">EN</span>
+                    </button>
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-en="🚀 The Future of Accounting" data-ar="🚀 مستقبل المحاسبة">
+                    🚀 مستقبل المحاسبة
+                </div>
+                <h1 class="hero-title" data-en="Modern Accounting.<br>Zero Complexity." data-ar="محاسبة حديثة.<br>بلا تعقيد.">
+                    محاسبة حديثة.<br>بلا تعقيد.
+                </h1>
+                <p class="hero-subtitle" data-en="Free, open-source ERP system designed specifically for Saudi and Gulf businesses. Professional financial management with world-class design." data-ar="نظام ERP مفتوح المصدر مصمم خصيصاً للشركات السعودية والخليجية. إدارة مالية احترافية بتصميم عالمي.">
+                    نظام ERP مفتوح المصدر مصمم خصيصاً للشركات السعودية والخليجية. إدارة مالية احترافية بتصميم عالمي.
+                </p>
+                <div class="hero-cta">
+                    <a href="#demo" class="btn btn-primary" data-en="Try Demo Now" data-ar="جرب النظام مجاناً">
+                        <span>جرب النظام مجاناً</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#features" class="btn btn-secondary" data-en="Explore Features" data-ar="استكشف المميزات">
+                        <span>استكشف المميزات</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-en="150K+" data-ar="150 ألف+">150 ألف+</div>
+                        <div class="stat-label" data-en="Downloads" data-ar="تحميل">تحميل</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-en="95%" data-ar="95%">95%</div>
+                        <div class="stat-label" data-en="Satisfaction" data-ar="رضا العملاء">رضا العملاء</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-en="24/7" data-ar="24/7">24/7</div>
+                        <div class="stat-label" data-en="Support" data-ar="دعم فني">دعم فني</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-mockup">
+                    <div class="mockup-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <div class="dashboard-preview">
+                                <div class="preview-sidebar"></div>
+                                <div class="preview-main">
+                                    <div class="preview-cards">
+                                        <div class="preview-card"></div>
+                                        <div class="preview-card"></div>
+                                        <div class="preview-card"></div>
+                                    </div>
+                                    <div class="preview-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span data-en="Scroll to explore" data-ar="اسحب للأسفل">اسحب للأسفل</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="The Challenge" data-ar="التحدي">التحدي</h2>
+                <p class="section-subtitle" data-en="Most accounting systems are either too expensive or too complicated" data-ar="معظم الأنظمة المحاسبية إما باهظة الثمن أو معقدة للغاية">
+                    معظم الأنظمة المحاسبية إما باهظة الثمن أو معقدة للغاية
+                </p>
+            </div>
+            
+            <div class="ps-grid">
+                <div class="ps-card problem">
+                    <div class="ps-icon">😤</div>
+                    <h3 data-en="Old Systems" data-ar="الأنظمة القديمة">الأنظمة القديمة</h3>
+                    <ul>
+                        <li data-en="Outdated design from 2005" data-ar="تصميم قديم من 2005">تصميم قديم من 2005</li>
+                        <li data-en="Complex navigation" data-ar="تنقل معقد">تنقل معقد</li>
+                        <li data-en="No mobile support" data-ar="لا يدعم الجوال">لا يدعم الجوال</li>
+                        <li data-en="Expensive licenses" data-ar="رخص باهظة">رخص باهظة</li>
+                    </ul>
+                </div>
+                
+                <div class="ps-arrow">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+                
+                <div class="ps-card solution">
+                    <div class="ps-icon">✨</div>
+                    <h3 data-en="VIP Front Accounting" data-ar="في آي بي فرونت أكونتنج">في آي بي فرونت أكونتنج</h3>
+                    <ul>
+                        <li data-en="Modern, beautiful interface" data-ar="واجهة حديثة وجميلة">واجهة حديثة وجميلة</li>
+                        <li data-en="Intuitive & easy" data-ar="سهل وبديهي">سهل وبديهي</li>
+                        <li data-en="Full mobile responsive" data-ar="متجاوب تماماً مع الجوال">متجاوب تماماً مع الجوال</li>
+                        <li data-en="100% Free & Open Source" data-ar="مجاني 100% ومفتوح المصدر">مجاني 100% ومفتوح المصدر</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Powerful Features" data-ar="مميزات قوية">مميزات قوية</h2>
+                <p class="section-subtitle" data-en="Everything you need to manage your business finances professionally" data-ar="كل ما تحتاجه لإدارة أعمالك المالية باحترافية">
+                    كل ما تحتاجه لإدارة أعمالك المالية باحترافية
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 data-en="Smart Invoicing" data-ar="فوترة ذكية">فوترة ذكية</h3>
+                    <p data-en="Create professional invoices in seconds with automated calculations and multi-currency support" data-ar="إنشاء فواتير احترافية في ثوانٍ مع حسابات تلقائية ودعم متعدد العملات">
+                        إنشاء فواتير احترافية في ثوانٍ مع حسابات تلقائية ودعم متعدد العملات
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3 data-en="Inventory Management" data-ar="إدارة المخزون">إدارة المخزون</h3>
+                    <p data-en="Track stock levels, set alerts, and generate reports with barcode support" data-ar="تتبع مستويات المخزون وإنشاء تنبيهات وتقارير مع دعم الباركود">
+                        تتبع مستويات المخزون وإنشاء تنبيهات وتقارير مع دعم الباركود
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 data-en="Financial Reports" data-ar="تقارير مالية">تقارير مالية</h3>
+                    <p data-en="Comprehensive reports: P&L, Balance Sheet, Cash Flow, and custom analytics" data-ar="تقارير شاملة: الأرباح والخسائر، الميزانية، التدفق النقدي، وتحليلات مخصصة">
+                        تقارير شاملة: الأرباح والخسائر، الميزانية، التدفق النقدي، وتحليلات مخصصة
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 data-en="Customer Management" data-ar="إدارة العملاء">إدارة العملاء</h3>
+                    <p data-en="Complete CRM with payment tracking, credit limits, and customer history" data-ar="نظام CRM متكامل مع تتبع الدفعات، حدود الائتمان، وسجل العملاء">
+                        نظام CRM متكامل مع تتبع الدفعات، حدود الائتمان، وسجل العملاء
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3 data-en="Multi-Currency" data-ar="متعدد العملات">متعدد العملات</h3>
+                    <p data-en="Support for unlimited currencies with automatic exchange rate updates" data-ar="دعم عملات غير محدودة مع تحديث تلقائي لأسعار الصرف">
+                        دعم عملات غير محدودة مع تحديث تلقائي لأسعار الصرف
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3 data-en="Multi-Company" data-ar="متعدد الشركات">متعدد الشركات</h3>
+                    <p data-en="Manage multiple companies from one system with separate books" data-ar="إدارة شركات متعددة من نظام واحد مع دفاتر منفصلة">
+                        إدارة شركات متعددة من نظام واحد مع دفاتر منفصلة
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-en="Advanced Security" data-ar="أمان متقدم">أمان متقدم</h3>
+                    <p data-en="Role-based access control, audit trails, and data encryption" data-ar="التحكم في الوصول حسب الأدوار، سجلات التدقيق، وتشفير البيانات">
+                        التحكم في الوصول حسب الأدوار، سجلات التدقيق، وتشفير البيانات
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-en="Mobile Ready" data-ar="جاهز للجوال">جاهز للجوال</h3>
+                    <p data-en="Fully responsive design works perfectly on all devices" data-ar="تصميم متجاوب تماماً يعمل بشكل مثالي على جميع الأجهزة">
+                        تصميم متجاوب تماماً يعمل بشكل مثالي على جميع الأجهزة
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 data-en="Lightning Fast" data-ar="سرعة فائقة">سرعة فائقة</h3>
+                    <p data-en="Optimized performance for instant loading and smooth operations" data-ar="أداء محسّن للتحميل الفوري والعمليات السلسة">
+                        أداء محسّن للتحميل الفوري والعمليات السلسة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Why Choose VIP Front Accounting?" data-ar="لماذا تختار في آي بي فرونت أكونتنج؟">لماذا تختار في آي بي فرونت أكونتنج؟</h2>
+                <p class="section-subtitle" data-en="We're not just another accounting system" data-ar="نحن لسنا مجرد نظام محاسبي آخر">
+                    نحن لسنا مجرد نظام محاسبي آخر
+                </p>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-number">01</div>
+                    <h3 data-en="Built for Gulf Region" data-ar="مصمم للمنطقة الخليجية">مصمم للمنطقة الخليجية</h3>
+                    <p data-en="Full Arabic support, RTL interface, and compliance with Saudi/Gulf regulations" data-ar="دعم كامل للغة العربية، واجهة RTL، والامتثال للوائح السعودية والخليجية">
+                        دعم كامل للغة العربية، واجهة RTL، والامتثال للوائح السعودية والخليجية
+                    </p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-number">02</div>
+                    <h3 data-en="Zero Learning Curve" data-ar="بدون منحنى تعلم">بدون منحنى تعلم</h3>
+                    <p data-en="Intuitive interface with interactive tutorials and instant support" data-ar="واجهة بديهية مع دروس تفاعلية ودعم فوري">
+                        واجهة بديهية مع دروس تفاعلية ودعم فوري
+                    </p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-number">03</div>
+                    <h3 data-en="Enterprise Grade" data-ar="مستوى المؤسسات">مستوى المؤسسات</h3>
+                    <p data-en="Professional features used by thousands of businesses worldwide" data-ar="ميزات احترافية يستخدمها آلاف الشركات حول العالم">
+                        ميزات احترافية يستخدمها آلاف الشركات حول العالم
+                    </p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-number">04</div>
+                    <h3 data-en="100% Free Forever" data-ar="مجاني 100% للأبد">مجاني 100% للأبد</h3>
+                    <p data-en="Open source with no hidden costs, licensing fees, or feature limits" data-ar="مفتوح المصدر بدون تكاليف خفية أو رسوم ترخيص أو قيود على المميزات">
+                        مفتوح المصدر بدون تكاليف خفية أو رسوم ترخيص أو قيود على المميزات
+                    </p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-number">05</div>
+                    <h3 data-en="Active Community" data-ar="مجتمع نشط">مجتمع نشط</h3>
+                    <p data-en="Thousands of developers and users ready to help and share knowledge" data-ar="آلاف المطورين والمستخدمين المستعدين للمساعدة ومشاركة المعرفة">
+                        آلاف المطورين والمستخدمين المستعدين للمساعدة ومشاركة المعرفة
+                    </p>
+                </div>
+                
+                <div class="why-card">
+                    <div class="why-number">06</div>
+                    <h3 data-en="Your Data, Your Control" data-ar="بياناتك، سيطرتك">بياناتك، سيطرتك</h3>
+                    <p data-en="Host on your own servers, full data ownership, complete privacy" data-ar="استضافة على خوادمك الخاصة، ملكية كاملة للبيانات، خصوصية تامة">
+                        استضافة على خوادمك الخاصة، ملكية كاملة للبيانات، خصوصية تامة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="How We Compare" data-ar="مقارنة مع المنافسين">مقارنة مع المنافسين</h2>
+            </div>
+            
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Feature" data-ar="الميزة">الميزة</th>
+                            <th class="highlight">
+                                <div class="table-logo">💎 VIP FA</div>
+                            </th>
+                            <th data-en="QuickBooks" data-ar="كويك بوكس">كويك بوكس</th>
+                            <th data-en="Odoo" data-ar="أودو">أودو</th>
+                            <th data-en="ERPNext" data-ar="إي آر بي نكست">إي آر بي نكست</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Price" data-ar="السعر">السعر</td>
+                            <td class="highlight"><span class="check">✓</span> <span data-en="Free" data-ar="مجاني">مجاني</span></td>
+                            <td><span data-en="$30+/month" data-ar="30$+/شهر">30$+/شهر</span></td>
+                            <td><span data-en="$25+/user" data-ar="25$+/مستخدم">25$+/مستخدم</span></td>
+                            <td><span data-en="$10+/user" data-ar="10$+/مستخدم">10$+/مستخدم</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Modern UI" data-ar="واجهة حديثة">واجهة حديثة</td>
+                            <td class="highlight"><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Arabic Support" data-ar="دعم العربية">دعم العربية</td>
+                            <td class="highlight"><span class="check">✓</span> <span data-en="Full" data-ar="كامل">كامل</span></td>
+                            <td><span data-en="Partial" data-ar="جزئي">جزئي</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Mobile App" data-ar="تطبيق جوال">تطبيق جوال</td>
+                            <td class="highlight"><span class="check">✓</span> <span data-en="Responsive" data-ar="متجاوب">متجاوب</span></td>
+                            <td><span class="check">✓</span> <span data-en="Native" data-ar="أصلي">أصلي</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Open Source" data-ar="مفتوح المصدر">مفتوح المصدر</td>
+                            <td class="highlight"><span class="check">✓</span> <span data-en="GPL" data-ar="GPL">GPL</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span> <span data-en="Partial" data-ar="جزئي">جزئي</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Setup Time" data-ar="وقت الإعداد">وقت الإعداد</td>
+                            <td class="highlight"><span data-en="5 minutes" data-ar="5 دقائق">5 دقائق</span></td>
+                            <td><span data-en="30 minutes" data-ar="30 دقيقة">30 دقيقة</span></td>
+                            <td><span data-en="1 hour" data-ar="ساعة">ساعة</span></td>
+                            <td><span data-en="2 hours" data-ar="ساعتان">ساعتان</span></td>
+                        </tr>
+                        <tr>
+                            <td data-en="Self-Hosting" data-ar="استضافة ذاتية">استضافة ذاتية</td>
+                            <td class="highlight"><span class="check">✓</span> <span data-en="Easy" data-ar="سهل">سهل</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Simple, Transparent Pricing" data-ar="تسعير بسيط وشفاف">تسعير بسيط وشفاف</h2>
+                <p class="section-subtitle" data-en="Choose the perfect plan for your business" data-ar="اختر الخطة المثالية لعملك">
+                    اختر الخطة المثالية لعملك
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-en="Self-Hosted" data-ar="استضافة ذاتية">استضافة ذاتية</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                            <span class="period" data-en="/forever" data-ar="/للأبد">/للأبد</span>
+                        </div>
+                        <p class="pricing-desc" data-en="Download and install on your own server" data-ar="حمّل وثبّت على خادمك الخاص">
+                            حمّل وثبّت على خادمك الخاص
+                        </p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> <span data-en="All features included" data-ar="جميع المميزات متضمنة">جميع المميزات متضمنة</span></li>
+                        <li><span class="check">✓</span> <span data-en="Unlimited users" data-ar="مستخدمون غير محدودين">مستخدمون غير محدودين</span></li>
+                        <li><span class="check">✓</span> <span data-en="Unlimited companies" data-ar="شركات غير محدودة">شركات غير محدودة</span></li>
+                        <li><span class="check">✓</span> <span data-en="Full source code access" data-ar="وصول كامل للكود المصدري">وصول كامل للكود المصدري</span></li>
+                        <li><span class="check">✓</span> <span data-en="Community support" data-ar="دعم المجتمع">دعم المجتمع</span></li>
+                        <li><span class="check">✓</span> <span data-en="Regular updates" data-ar="تحديثات منتظمة">تحديثات منتظمة</span></li>
+                    </ul>
+                    <a href="#demo" class="btn btn-outline" data-en="Download Free" data-ar="حمّل مجاناً">
+                        <span>حمّل مجاناً</span>
+                    </a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge" data-en="Most Popular" data-ar="الأكثر شعبية">الأكثر شعبية</div>
+                    <div class="pricing-header">
+                        <h3 data-en="Cloud Hosted" data-ar="استضافة سحابية">استضافة سحابية</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period" data-en="/month" data-ar="/شهر">/شهر</span>
+                        </div>
+                        <p class="pricing-desc" data-en="We handle everything for you" data-ar="نتولى كل شيء نيابة عنك">
+                            نتولى كل شيء نيابة عنك
+                        </p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> <span data-en="Everything in Self-Hosted" data-ar="كل ما في الاستضافة الذاتية">كل ما في الاستضافة الذاتية</span></li>
+                        <li><span class="check">✓</span> <span data-en="Automatic backups" data-ar="نسخ احتياطي تلقائي">نسخ احتياطي تلقائي</span></li>
+                        <li><span class="check">✓</span> <span data-en="SSL certificate included" data-ar="شهادة SSL متضمنة">شهادة SSL متضمنة</span></li>
+                        <li><span class="check">✓</span> <span data-en="Priority support" data-ar="دعم ذو أولوية">دعم ذو أولوية</span></li>
+                        <li><span class="check">✓</span> <span data-en="99.9% uptime SLA" data-ar="ضمان وقت تشغيل 99.9%">ضمان وقت تشغيل 99.9%</span></li>
+                        <li><span class="check">✓</span> <span data-en="Custom domain" data-ar="نطاق مخصص">نطاق مخصص</span></li>
+                    </ul>
+                    <a href="#demo" class="btn btn-primary" data-en="Start Free Trial" data-ar="ابدأ تجربة مجانية">
+                        <span>ابدأ تجربة مجانية</span>
+                    </a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-en="Enterprise" data-ar="المؤسسات">المؤسسات</h3>
+                        <div class="price">
+                            <span class="amount" data-en="Custom" data-ar="مخصص">مخصص</span>
+                        </div>
+                        <p class="pricing-desc" data-en="Tailored solutions for large organizations" data-ar="حلول مخصصة للمؤسسات الكبيرة">
+                            حلول مخصصة للمؤسسات الكبيرة
+                        </p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">✓</span> <span data-en="Everything in Cloud" data-ar="كل ما في الاستضافة السحابية">كل ما في الاستضافة السحابية</span></li>
+                        <li><span class="check">✓</span> <span data-en="Dedicated server" data-ar="خادم مخصص">خادم مخصص</span></li>
+                        <li><span class="check">✓</span> <span data-en="Custom development" data-ar="تطوير مخصص">تطوير مخصص</span></li>
+                        <li><span class="check">✓</span> <span data-en="On-site training" data-ar="تدريب في الموقع">تدريب في الموقع</span></li>
+                        <li><span class="check">✓</span> <span data-en="24/7 phone support" data-ar="دعم هاتفي 24/7">دعم هاتفي 24/7</span></li>
+                        <li><span class="check">✓</span> <span data-en="SLA guarantees" data-ar="ضمانات اتفاقية مستوى الخدمة">ضمانات اتفاقية مستوى الخدمة</span></li>
+                    </ul>
+                    <a href="https://wa.me/201113903070" class="btn btn-outline" data-en="Contact Sales" data-ar="تواصل مع المبيعات">
+                        <span>تواصل مع المبيعات</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Try It Now - Free Demo" data-ar="جربه الآن - نسخة تجريبية مجانية">جربه الآن - نسخة تجريبية مجانية</h2>
+                <p class="section-subtitle" data-en="Experience the power of VIP Front Accounting without any signup" data-ar="جرب قوة في آي بي فرونت أكونتنج بدون أي تسجيل">
+                    جرب قوة في آي بي فرونت أكونتنج بدون أي تسجيل
+                </p>
+            </div>
+            
+            <div class="demo-content">
+                <div class="demo-info">
+                    <h3 data-en="What's Included in Demo:" data-ar="ما المتضمن في النسخة التجريبية:">ما المتضمن في النسخة التجريبية:</h3>
+                    <ul class="demo-features">
+                        <li>
+                            <span class="demo-icon">✓</span>
+                            <div>
+                                <strong data-en="Sample Data" data-ar="بيانات تجريبية">بيانات تجريبية</strong>
+                                <p data-en="Pre-loaded with realistic business data" data-ar="محملة مسبقاً ببيانات أعمال واقعية">محملة مسبقاً ببيانات أعمال واقعية</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="demo-icon">✓</span>
+                            <div>
+                                <strong data-en="Full Features" data-ar="جميع المميزات">جميع المميزات</strong>
+                                <p data-en="Access to all premium features" data-ar="وصول لجميع المميزات المتقدمة">وصول لجميع المميزات المتقدمة</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="demo-icon">✓</span>
+                            <div>
+                                <strong data-en="Guided Tours" data-ar="جولات إرشادية">جولات إرشادية</strong>
+                                <p data-en="Interactive tutorials to get you started" data-ar="دروس تفاعلية لمساعدتك على البدء">دروس تفاعلية لمساعدتك على البدء</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="demo-icon">✓</span>
+                            <div>
+                                <strong data-en="No Registration" data-ar="بدون تسجيل">بدون تسجيل</strong>
+                                <p data-en="Instant access, no email required" data-ar="وصول فوري، بدون بريد إلكتروني">وصول فوري، بدون بريد إلكتروني</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="demo-cta">
+                        <a href="#" class="btn btn-primary btn-large" data-en="Launch Demo Dashboard" data-ar="افتح لوحة التحكم التجريبية">
+                            <span>افتح لوحة التحكم التجريبية</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <p class="demo-note" data-en="Demo resets every 30 minutes" data-ar="النسخة التجريبية تُعاد كل 30 دقيقة">النسخة التجريبية تُعاد كل 30 دقيقة</p>
+                    </div>
+                </div>
+                <div class="demo-visual">
+                    <div class="demo-browser">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">demo.vipfa.com</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="demo-screen"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="What Our Users Say" data-ar="ماذا يقول مستخدمونا">ماذا يقول مستخدمونا</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="Switching to VIP Front Accounting was the best decision for our business. The interface is beautiful and everything just works!" data-ar="التحول إلى في آي بي فرونت أكونتنج كان أفضل قرار لأعمالنا. الواجهة جميلة وكل شيء يعمل بسلاسة!">
+                        "التحول إلى في آي بي فرونت أكونتنج كان أفضل قرار لأعمالنا. الواجهة جميلة وكل شيء يعمل بسلاسة!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <div class="author-name" data-en="Ahmed Al-Rashid" data-ar="أحمد الراشد">أحمد الراشد</div>
+                            <div class="author-title" data-en="CEO, Tech Solutions KSA" data-ar="المدير التنفيذي، حلول تقنية السعودية">المدير التنفيذي، حلول تقنية السعودية</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="Finally, an accounting system that speaks Arabic properly! The RTL support is flawless and the features are enterprise-grade." data-ar="أخيراً، نظام محاسبي يتحدث العربية بشكل صحيح! دعم RTL مثالي والمميزات بمستوى المؤسسات.">
+                        "أخيراً، نظام محاسبي يتحدث العربية بشكل صحيح! دعم RTL مثالي والمميزات بمستوى المؤسسات."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍💼</div>
+                        <div class="author-info">
+                            <div class="author-name" data-en="Fatima Al-Harbi" data-ar="فاطمة الحربي">فاطمة الحربي</div>
+                            <div class="author-title" data-en="Finance Manager, Retail Group" data-ar="مديرة مالية، مجموعة البيع بالتجزئة">مديرة مالية، مجموعة البيع بالتجزئة</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="We saved over $10,000 per year by switching from QuickBooks. The open-source nature gives us complete control." data-ar="وفرنا أكثر من 10,000 دولار سنوياً بالتحول من كويك بوكس. الطبيعة مفتوحة المصدر تمنحنا السيطرة الكاملة.">
+                        "وفرنا أكثر من 10,000 دولار سنوياً بالتحول من كويك بوكس. الطبيعة مفتوحة المصدر تمنحنا السيطرة الكاملة."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <div class="author-name" data-en="Khalid Al-Mutairi" data-ar="خالد المطيري">خالد المطيري</div>
+                            <div class="author-title" data-en="Owner, Import/Export Co." data-ar="مالك، شركة استيراد وتصدير">مالك، شركة استيراد وتصدير</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title" data-en="Ready to Transform Your Accounting?" data-ar="جاهز لتحويل محاسبتك؟">جاهز لتحويل محاسبتك؟</h2>
+                <p class="cta-subtitle" data-en="Join thousands of businesses already using VIP Front Accounting" data-ar="انضم إلى آلاف الشركات التي تستخدم في آي بي فرونت أكونتنج">
+                    انضم إلى آلاف الشركات التي تستخدم في آي بي فرونت أكونتنج
+                </p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-primary btn-large" data-en="Start Free Trial" data-ar="ابدأ تجربة مجانية">
+                        <span>ابدأ تجربة مجانية</span>
+                    </a>
+                    <a href="https://wa.me/201113903070" class="btn btn-outline btn-large" data-en="Contact on WhatsApp" data-ar="تواصل عبر واتساب">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span>تواصل عبر واتساب</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">💎</span>
+                        <span class="logo-text">VIP Front Accounting</span>
+                    </div>
+                    <p class="footer-desc" data-en="Modern accounting system for Saudi and Gulf businesses" data-ar="نظام محاسبي حديث للشركات السعودية والخليجية">
+                        نظام محاسبي حديث للشركات السعودية والخليجية
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/201113903070" aria-label="WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://moh222salah.github.io/cv" aria-label="Portfolio">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-en="Product" data-ar="المنتج">المنتج</h4>
+                        <ul>
+                            <li><a href="#features" data-en="Features" data-ar="المميزات">المميزات</a></li>
+                            <li><a href="#pricing" data-en="Pricing" data-ar="الأسعار">الأسعار</a></li>
+                            <li><a href="#demo" data-en="Demo" data-ar="تجربة">تجربة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-en="Company" data-ar="الشركة">الشركة</h4>
+                        <ul>
+                            <li><a href="#why-us" data-en="Why Us" data-ar="لماذا نحن">لماذا نحن</a></li>
+                            <li><a href="https://wa.me/201113903070" data-en="Contact" data-ar="تواصل">تواصل</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-en="Resources" data-ar="الموارد">الموارد</h4>
+                        <ul>
+                            <li><a href="#" data-en="Documentation" data-ar="التوثيق">التوثيق</a></li>
+                            <li><a href="#" data-en="Support" data-ar="الدعم">الدعم</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2024 All rights reserved. " data-ar="© 2024 جميع الحقوق محفوظة">
+                    © 2024 جميع الحقوق محفوظة.
+                </p>
+                <div class="footer-dev">
+                    <span data-en="Developed by" data-ar="طُور بواسطة">طُور بواسطة</span>
+                    <a href="https://moh222salah.github.io/cv" target="_blank">Mohamed Salah</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+
+
+// ============================================
+// VIP Front Accounting - Interactive Features
+// ============================================
+
+// === Global State ===
+const state = {
+    theme: 'light',
+    language: 'ar',
+    direction: 'rtl'
+};
+
+// === Language Translations ===
+const translations = {
+    ar: {},
+    en: {}
+};
+
+// === Initialize App ===
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initLanguage();
+    initNavigation();
+    initScrollEffects();
+    initBackToTop();
+    initAnimations();
+    initSmoothScroll();
+    preventDoubleTapZoom();
+});
+
+// === Theme Management ===
+function initTheme() {
+    // Check for saved theme preference or default to 'light'
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    state.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(state.theme);
+    
+    // Theme toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+}
+
+function toggleTheme() {
+    state.theme = state.theme === 'light' ? 'dark' : 'light';
+    applyTheme(state.theme);
+    localStorage.setItem('theme', state.theme);
+    
+    // Animate the toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('.theme-icon');
+    
+    icon.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+        icon.style.transform = 'rotate(0deg)';
+    }, 300);
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle?.querySelector('.theme-icon');
+    
+    if (icon) {
+        icon.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+}
+
+// === Language Management ===
+function initLanguage() {
+    // Detect browser language
+    const browserLang = navigator.language || navigator.userLanguage;
+    const isArabic = browserLang.startsWith('ar');
+    
+    // Check for saved preference
+    const savedLang = localStorage.getItem('language');
+    state.language = savedLang || (isArabic ? 'ar' : 'en');
+    state.direction = state.language === 'ar' ? 'rtl' : 'ltr';
+    
+    applyLanguage(state.language);
+    
+    // Language toggle button
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.addEventListener('click', toggleLanguage);
+    }
+}
+
+function toggleLanguage() {
+    state.language = state.language === 'ar' ? 'en' : 'ar';
+    state.direction = state.language === 'ar' ? 'rtl' : 'ltr';
+    
+    applyLanguage(state.language);
+    localStorage.setItem('language', state.language);
+}
+
+function applyLanguage(lang) {
+    const html = document.documentElement;
+    const dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', dir);
+    
+    // Update toggle button text
+    const langToggle = document.getElementById('langToggle');
+    const langText = langToggle?.querySelector('.lang-text');
+    if (langText) {
+        langText.textContent = lang === 'ar' ? 'EN' : 'ع';
+    }
+    
+    // Update all translatable elements
+    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+        const text = lang === 'ar' ? el.dataset.ar : el.dataset.en;
+        
+        // Check if element is input/textarea
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = text;
+        } else {
+            // Preserve HTML structure
+            if (text.includes('<br>')) {
+                el.innerHTML = text;
+            } else {
+                el.textContent = text;
+            }
+        }
+    });
+    
+    // Update font
+    document.body.style.fontFamily = lang === 'ar' 
+        ? "'Tajawal', -apple-system, sans-serif" 
+        : "'Inter', -apple-system, sans-serif";
+}
+
+// === Navigation ===
+function initNavigation() {
+    const header = document.getElementById('header');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    // Scroll behavior
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Add shadow on scroll
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Mobile menu toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+            
+            // Animate hamburger
+            const hamburger = navToggle.querySelector('.hamburger');
+            if (navToggle.classList.contains('active')) {
+                hamburger.style.background = 'transparent';
+            } else {
+                hamburger.style.background = 'currentColor';
+            }
+        });
+        
+        // Close menu on link click
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                const hamburger = navToggle.querySelector('.hamburger');
+                hamburger.style.background = 'currentColor';
+            });
+        });
+    }
+}
+
+// === Scroll Effects ===
+function initScrollEffects() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Trigger counter animations for stats
+                if (entry.target.classList.contains('stat-number')) {
+                    animateCounter(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+    
+    // Observe cards
+    document.querySelectorAll('.feature-card, .why-card, .pricing-card, .testimonial-card').forEach(card => {
+        observer.observe(card);
+    });
+    
+    // Observe stats
+    document.querySelectorAll('.stat-number').forEach(stat => {
+        observer.observe(stat);
+    });
+}
+
+// === Counter Animation ===
+function animateCounter(element) {
+    if (element.classList.contains('counted')) return;
+    
+    const target = element.textContent;
+    const isPercentage = target.includes('%');
+    const isPlus = target.includes('+');
+    const number = parseInt(target.replace(/[^\d]/g, ''));
+    
+    if (isNaN(number)) return;
+    
+    const duration = 2000;
+    const steps = 60;
+    const increment = number / steps;
+    let current = 0;
+    
+    element.classList.add('counted');
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= number) {
+            current = number;
+            clearInterval(timer);
+        }
+        
+        let display = Math.floor(current).toLocaleString(state.language === 'ar' ? 'ar-SA' : 'en-US');
+        
+        if (isPercentage) display += '%';
+        if (isPlus) display += '+';
+        
+        element.textContent = display;
+    }, duration / steps);
+}
+
+// === Back to Top Button ===
+function initBackToTop() {
+    const backToTop = document.getElementById('backToTop');
+    
+    if (!backToTop) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// === Smooth Scroll ===
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Don't prevent default for # only
+            if (href === '#') return;
+            
+            e.preventDefault();
+            
+            const target = document.querySelector(href);
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// === Animations ===
+function initAnimations() {
+    // Ripple effect for buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+    
+    // Parallax effect for hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroHeight = hero.offsetHeight;
+            
+            if (scrolled < heroHeight) {
+                const heroContent = hero.querySelector('.hero-content');
+                const heroVisual = hero.querySelector('.hero-visual');
+                
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                    heroContent.style.opacity = 1 - (scrolled / heroHeight) * 0.5;
+                }
+                
+                if (heroVisual) {
+                    heroVisual.style.transform = `translateY(${scrolled * 0.2}px)`;
+                }
+            }
+        });
+    }
+    
+    // Hover effects for feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // 3D tilt effect for mockup
+    const mockup = document.querySelector('.mockup-window');
+    if (mockup) {
+        mockup.addEventListener('mousemove', (e) => {
+            const rect = mockup.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * 5;
+            const rotateY = ((centerX - x) / centerX) * 5;
+            
+            mockup.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        mockup.addEventListener('mouseleave', () => {
+            mockup.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    }
+}
+
+// === Prevent Double Tap Zoom (iOS) ===
+function preventDoubleTapZoom() {
+    let lastTouchEnd = 0;
+    
+    document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 300) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+}
+
+// === Utility Functions ===
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// === Performance Optimizations ===
+// Optimize scroll events
+const optimizedScroll = throttle(() => {
+    // Scroll handler logic
+}, 16);
+
+window.addEventListener('scroll', optimizedScroll);
+
+// === Lazy Loading Images ===
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// === Console Branding ===
+console.log('%c💎 VIP Front Accounting', 'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #0066FF, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
+console.log('%cModern Accounting System for Saudi & Gulf Businesses', 'font-size: 14px; color: #64748B;');
+console.log('%cDeveloped by Mohamed Salah | https://moh222salah.github.io/cv', 'font-size: 12px; color: #0066FF;');
+
+// === Service Worker Registration (for PWA) ===
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // Uncomment when service worker is ready
+        // navigator.serviceWorker.register('/sw.js')
+        //     .then(reg => console.log('Service Worker registered'))
+        //     .catch(err => console.log('Service Worker registration failed'));
+    });
+}
+
+// === Error Handling ===
+window.addEventListener('error', (e) => {
+    console.error('Global error:', e.error);
+    // You can send errors to analytics here
+});
+
+window.addEventListener('unhandledrejection', (e) => {
+    console.error('Unhandled promise rejection:', e.reason);
+});
+
+// === Export for module usage ===
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        state,
+        toggleTheme,
+        toggleLanguage,
+        applyTheme,
+        applyLanguage
+    };
+}
+
+
+        
+    </script>
+</body>
+</html>
